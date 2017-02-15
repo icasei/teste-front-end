@@ -1,0 +1,29 @@
+{
+  "name": "teste-front-end",
+  "version": "1.0.0",
+  "description": "Desenvolver uma aplicação HTML5",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vpzebral/teste-front-end.git"
+  },
+  "author": "Vinícius Pereira Zebral",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vpzebral/teste-front-end/issues"
+  },
+  "homepage": "https://github.com/vpzebral/teste-front-end#readme",
+  "dependencies": {
+    "angular": "1.5.9",
+    "angular-cookies": "1.5.9",
+    "angular-route": "1.5.9",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}

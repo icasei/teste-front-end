@@ -1,0 +1,43 @@
+/*reset css*/
+*{font-family: 'Roboto', sans-serif, Arial; font-size: 1.125em;}
+header, footer{background-color: #00BCD4; height: 4.375em;}
+input[type="text"]{height: 54px; font-size: 1.125em; color: #000000}
+button[type="button"]{height: 54px; background-color: #00BCD4; color: #ffffff; font-size: 20px;}
+button[type="button"]:hover{background-color: #00BCA4;color: #ffffff;}
+button[type="button"]:focus{background-color: #00BCA4;color: #ffffff;}
+
+/*mob*/
+@media screen and (max-device-width: 61.9375em) {
+    input[type="text"],button[type="button"]{height: 44px; font-size: 18px;}   
+    .btn-busca{text-align: center ;margin-top:1em;}
+    .centro{margin-top: 24%;}
+    .errortext,.card-filme-detalhe{text-align: center;}
+}
+
+.b{border: solid 1px #000000;}
+.conteudo{min-height: 500px;}
+.errorinput{border-color: red;}
+.errortext{color:red; font-size: 16px; margin-top: 5px;}
+.alert-text{font-size: 20px; color: #000000; text-align: center;}
+.busca-filme{left: 50%;margin-top: 19%;-webkit-transition: all 1s ease;-moz-transition: all 1s ease;-o-transition: all 1s ease;-ms-transition: all 1s ease;transition: all 1s ease;}
+.active {margin-top: 1%;}
+.lista-filmes{margin-top: 10px;}
+.loading{text-align: center; font-size: 1em; color: #019cad;}
+.card-filme{text-align: center; min-height: 150px; max-width: 400px; margin-left: auto; margin-right: auto; margin-top: 5px;}
+.poster{text-align: center; height: 300px; width: 230px; border-radius: 5px;}
+.pagination{font-size: 16px; margin-left: auto;}
+.card-pagination{margin-left: auto; text-align: center; margin-right: auto;}
+.link{font-size: 16px; font-weight: bold; color: #00BCD4;}
+.link:hover{color: #00BCA4;}
+.top-5{margin-top: 5px;}
+.bottom-5{margin-bottom: 5px;}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{background-color: #00BCD4;border-color: #00BCD4;}
+.card-filme-detalhe{margin-top: 10px;}
+.card-filme-detalhe-poster{text-align: center;}
+.card-filme-detalhe-img{border-radius: 5px;}
+.card-filme-detalhe-title{font-size: 45px; font-weight: bold; letter-spacing:2px;}
+.card-filme-detalhe-label{font-size: 16px; font-weight: bold; color: #E4541F}
+.card-filme-detalhe-label-info{font-size: 16px; color: #9e9a8e; letter-spacing:2px; font-weight:normal;}
+.center{text-align: center;}
+.btn-secundario{width: 150px; font-size: 20px; background-color: #00BCD4; color: #ffffff}
+.btn-secundario:hover{color: #ffffff; background-color: #00BCA4;}
