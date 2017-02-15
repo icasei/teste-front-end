@@ -1,4 +1,4 @@
-# Teste iCasei: Front-End Pleno - VINIICUS PEREIRA ZEBRAL
+# Teste iCasei: Front-End Pleno - VINICIUS PEREIRA ZEBRAL
 Desenvolver uma aplicação HTML5
 
 ## Especificações
