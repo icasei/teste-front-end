@@ -1,0 +1,46 @@
+<div ng-controller="detalheFilmeCtrl">	
+	<div ng-show="loading" class="loading">
+          <img src="src/assets/img/loading.svg">
+          <p>Aguarde carregando...</p>
+    </div>
+	<div id="detalhes-filme" ng-hide="loading">		
+		<div class="row card-filme-detalhe">			
+			<div id="filme-poster" class="col-md-4 col-lg-4 card-filme-detalhe-poster">
+				<img src="{{filmeDetalhes.Poster}}" class="card-filme-detalhe-img">				
+			</div>
+			<div id="filme-info" class="col-md-8 col-lg-8">				
+				<div id="title" class="col-md-12 col-lg-12">
+					<h1 class="card-filme-detalhe-title">{{filmeDetalhes.Title}}</h1>
+					<p class="card-filme-detalhe-label-info">{{filmeDetalhes.Year}} ({{filmeDetalhes.Country}})  | <span class="card-filme-detalhe-label">Type:</span> <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Type}}</span> | 	<span class="card-filme-detalhe-label">Rated:</span><span class="card-filme-detalhe-label-info">{{filmeDetalhes.Rated}}</span></p>
+				</div>
+				<div id="plot" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label-info">{{filmeDetalhes.Plot}}</p>
+				</div>
+				<div id="genre" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label">Genre : <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Genre}}</span></p>
+				</div>
+				<div id="linha" class="col-md-12 col-lg-12">
+					<hr/>
+				</div>
+				<div id="director" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label">Director : <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Director}}</span></p>
+				</div>			
+				<div id="writer" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label">Writer : <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Writer}}</span></p>
+				</div>
+				<div id="actors" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label">Actors : <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Actors}}</span></p>
+				</div>
+				<div id="language" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label">Language : <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Language}}</span></p>
+				</div>				
+				<div id="awards" class="col-md-12 col-lg-12">
+					<p class="card-filme-detalhe-label">Awards : <span class="card-filme-detalhe-label-info">{{filmeDetalhes.Awards}}</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="row top-5 center bottom-5">
+			<a type="button" name="voltar" class="btn btn-secundario" href="#/search/?search=1" role="button">VOLTAR</a> 
+		</div>
+	</div>
+</div>

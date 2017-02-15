@@ -1,0 +1,48 @@
+<div ng-controller="buscaFilmesCtrl">  
+  
+  <div id="busca-filme" class="row busca-filme" ng-class="{active :filmesEncontrados.length > 0}">
+    <div class="col-xs-10 col-xs-push-1 col-sm-10 col-sm-push-1 col-md-6 col-md-push-2 col-lg-6 col-lg-push-2">
+      <input ng-model="filmePesquisa" class="form-control" type="text" id="busca-filme-input" placeholder="Procure seu filme" ng-class="{errorinput :buscaInvalid}">
+      <p ng-if="buscaInvalid" class="errortext">Este campo é obrigatorio, por favor digite um filme :) </p>
+    </div>
+
+    <div class="btn-busca col-xs-10 col-xs-push-1 col-sm-10 col-sm-push-1 col-md-2 col-md-push-2 col-lg-2 col-lg-push-2">
+      <button ng-click="buscaFilme()" id="button" type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> BUSCAR
+      </button> 
+    </div>
+  </div>
+
+  <div ng-hide="loading" id="lista-filmes" class="row lista-filmes" ng-if="exibeLista">    
+    <hr/>
+    <div ng-if="filmesEncontrados.length === 0">
+      <p id="msg-alert" class="alert-text">{{msgAlert}}</p>
+    </div>
+    <div ng-if="filmesEncontrados.length > 0">        
+      <p class="alert-text">Resultados encontrados : {{filmesEncontrados.length}}</p>
+      <div class="card-pagination">
+        <dir-pagination-controls max-size="6" boundary-links="true"></dir-pagination-controls>
+      </div>        
+      <div dir-paginate="filme in filmesEncontrados|itemsPerPage:6">          
+        <div class="card-filme">
+          <a href="" ng-click="onClick(filme.imdbID);">               
+            <div>                  
+                <img class="poster" src="{{filme.Poster}}"  title="{{filme.Title}}">
+            </div>
+            <div class="top-5">
+              <p class="link">Ver Detalhes</p>
+            </div>             
+           </a>
+          <hr/>
+        </div>
+      </div>
+      <div class="card-pagination">
+        <dir-pagination-controls max-size="6" boundary-links="true"></dir-pagination-controls>
+      </div>
+    </div>
+  </div>
+  <div ng-show="loading" class=" loading">
+    <img src="src/assets/img/loading.svg">
+    <p>Aguarde carregando...</p>
+  </div>
+</div>
