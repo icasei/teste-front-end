@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Filmes</title>	
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="/src/assets/css/style.css" rel="stylesheet">
   </head>
   <body>
-    <form id="search-film">
-      <input type="text" id="search-film-input" placeholder="Procure seu filme">
-      <button type="submit" id="search-film-submit">Pesquisar</button>
-    </form>
-    <div id="results"></div>
+    <div class="container-fluid">
+      <div class="row">
+          <header></header>
+      </div>
+      <div class="conteudo">
+        <div ng-view></div>
+      </div>            
+      <div class="row">
+          <footer></footer>
+      </div>      
+    </div>
+    <!--scripts-->
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="src/assets/js/app.js"></script>
+    <script type="text/javascript" src="src/assets/js/controllers/buscaFilmesCtrl.js"></script>
+    <script type="text/javascript" src="src/assets/js/controllers/detalheFilmeCtrl.js"></script>
+    <script type="text/javascript" src="src/assets/js/interceptors/loadingInterceptor.js"></script>    
+    <script type="text/javascript" src="src/assets/js/config/configInterceptors.js"></script>
+    <script type="text/javascript" src="src/assets/js/config/configRouteProvider.js"></script>
+    <script type="text/javascript" src="src/assets/js/config/configDefault.js"></script>
+    <script type="text/javascript" src="src/assets/js/services/omdbApiService.js"></script>
+    <script type="text/javascript" src="src/assets/js/directives/dirPagination.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="application.js"></script>
   </body>
 </html>
