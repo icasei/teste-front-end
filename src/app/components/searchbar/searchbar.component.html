@@ -1,0 +1,6 @@
+<form [formGroup]="formSearch">
+  <div class="field">
+    <input formControlName="search" placeholder="Pesquisar">
+  </div>
+  <button [disabled]="!formSearch.valid">Buscar</button>
+</form>
