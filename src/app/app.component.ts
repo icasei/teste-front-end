@@ -28,5 +28,6 @@ export class AppComponent {
 
   searchResult(result) {
     this.searchDone = true
+    console.log(result)
   }
 }
