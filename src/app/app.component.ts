@@ -7,8 +7,9 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  loaded = false;
-  
+  loaded: Boolean = false;
+  searchDone: Boolean = false
+
   constructor(
     private router: Router
   ) {
@@ -23,5 +24,9 @@ export class AppComponent {
         }, 500);
       }
     })
+  }
+
+  searchResult(result) {
+    this.searchDone = true
   }
 }

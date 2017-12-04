@@ -1,6 +1,18 @@
-<form [formGroup]="formSearch">
-  <div class="field">
-    <input formControlName="search" placeholder="Pesquisar">
-  </div>
-  <button [disabled]="!formSearch.valid">Buscar</button>
+<form id="formSearch" class="form" [formGroup]="formSearch" (ngSubmit)="search()">
+  <mat-grid-list cols="12" rowHeight="90" gutterSize="10px">
+    <!-- search bar -->
+    <mat-grid-tile colspan="9">
+      <mat-form-field class="field" floatPlaceholder="never">
+        <input matInput formControlName="search" placeholder="Pesquisar">
+        <span matPrefix class="prefix">
+          <mat-icon>search</mat-icon>
+        </span>
+        <mat-error>Por favor, digite sua busca!</mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <!-- search button -->
+    <mat-grid-tile colspan="3">
+      <button mat-raised-button color="accent" [disabled]="!formSearch.valid">Buscar</button>
+    </mat-grid-tile>
+  </mat-grid-list>
 </form>
