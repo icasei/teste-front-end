@@ -1,0 +1,6 @@
+<main id="wrapper" [class.loaded]="loaded" [class.searchDone]="searchDone">
+  <mat-toolbar id="navbar" class="mat-elevation-z4">
+    <searchbar (result)="searchResult($event)"></searchbar>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</main>
