@@ -1,0 +1,60 @@
+// ## ## ## ## - MIXINS
+
+// POSITION: +pos(type, all) || +pos(type, top, right, bottom, left)
+
+=pos($p, $tORall: inherit, $r: inherit, $b: inherit, $l: inherit)
+  position: $p
+  @if $r == inherit and $b == inherit and $l == inherit
+    top: $tORall
+    right: $tORall
+    bottom: $tORall
+    left: $tORall
+
+  @if $tORall != inherit and ($r != inherit or $b != inherit or $l != inherit)
+    top: $tORall
+  @if $r != inherit
+    right: $r
+  @if $b != inherit
+    bottom: $b
+  @if $l != inherit
+    left: $l
+
+// POSITION CENTER: +posCenter(type, widthAndHeigth) || +posCenter(type, width, heigth)
+
+=posCenter($p, $sORw, $h: inherit)
+  position: $p
+  top: 50%
+  right: 50%
+  width: $sORw
+  margin-right: -($sORw / 2)
+  @if $h == inherit
+    height: $sORw
+    margin-top: -($sORw / 2)
+  @else
+    height: $h
+    margin-top: -($h / 2)
+
+// RADIUS: +rad(all) || +rad(topLeft, topRight, bottomRight, bottomLeft)
+
+=rad($tORall, $r: inherit, $b: inherit, $l: inherit)
+  @if $r == inherit and $b == inherit and $l == inherit
+    border-radius: $tORall
+
+  @if $tORall != inherit and ($r != inherit or $b != inherit or $l != inherit)
+    border-top-left-radius: $tORall
+  @if $r != inherit
+    border-top-right-radius: $r
+  @if $b != inherit
+    border-bottom-right-radius: $b
+  @if $l != inherit
+    border-bottom-left-radius: $tORall
+
+// SIZE: +size(widthAndHeigth) || +size(width, heigth)
+
+=size($sORw, $h: inherit)
+  @if $h == inherit
+    width: $sORw
+    height: $sORw
+  @else
+    width: $sORw
+    height: $h
