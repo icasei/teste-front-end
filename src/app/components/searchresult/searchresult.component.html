@@ -1,0 +1,21 @@
+<mat-card *ngFor="let video of result?.items">
+  <article class="cover">      
+    <img 
+      mat-card-image 
+      [src]="video.snippet.thumbnails.medium.url" 
+      [width]="video.snippet.thumbnails.medium.width" 
+      [height]="video.snippet.thumbnails.medium.height" 
+      alt="Imagem de {{ video.snippet.title }}">
+  </article>
+  <article class="text">
+    <mat-card-title>
+      <h6>{{ video.snippet.title }}</h6>
+    </mat-card-title>
+    <mat-card-content>
+      <p>{{ video.snippet.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button mat-raised-button color="accent">Assistir</button>
+    </mat-card-actions>
+  </article>
+</mat-card>

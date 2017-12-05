@@ -7,9 +7,10 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  loaded: Boolean = false;
+  loaded: Boolean = false
   searchDone: Boolean = false
-
+  resultList
+  
   constructor(
     private router: Router
   ) {
@@ -28,6 +29,7 @@ export class AppComponent {
 
   searchResult(result) {
     this.searchDone = true
-    console.log(result)
+    this.resultList = result
+    console.log(this.resultList)
   }
 }

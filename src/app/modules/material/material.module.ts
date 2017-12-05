@@ -6,7 +6,8 @@ import {
   ShowOnDirtyErrorStateMatcher,
   MatIconModule,
   MatGridListModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -15,14 +16,16 @@ import {
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   exports: [
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
