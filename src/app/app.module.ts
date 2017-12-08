@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppRouting } from './app.routing';
 import { YoutubeService } from './services/youtube.service';
@@ -25,6 +26,7 @@ import { SearchresultComponent } from './components/searchresult/searchresult.co
     BrowserAnimationsModule,
     HttpModule,
     MaterialModule,
+    FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
     AppRouting

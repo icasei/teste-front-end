@@ -2,6 +2,8 @@
   <mat-toolbar id="navbar" class="mat-elevation-z4">
     <searchbar (result)="searchResult($event)"></searchbar>
   </mat-toolbar>
-  <searchresult *ngIf="resultList?.items" [result]="resultList"></searchresult>
-  <router-outlet></router-outlet>
+  <section class="container">
+    <searchresult *ngIf="resultList?.items" [result]="resultList"></searchresult>
+    <router-outlet></router-outlet>
+  </section>
 </main>
