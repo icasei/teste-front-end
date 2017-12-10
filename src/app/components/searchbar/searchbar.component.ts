@@ -27,8 +27,8 @@ export class SearchbarComponent implements OnInit {
   }
 
   search() {
+    this.submitted = true
     if (this.formSearch.valid) {
-      this.submitted = true
       this.youtube.search(this.formSearch.controls.search.value)
       .subscribe(
         data => this.result.emit(data),
