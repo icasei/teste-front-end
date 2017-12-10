@@ -1,18 +1,35 @@
-<form id="formSearch" class="form" [formGroup]="formSearch" (ngSubmit)="search()">
-  <mat-grid-list cols="12" rowHeight="90" gutterSize="10px">
-    <!-- search bar -->
-    <mat-grid-tile colspan="9">
-      <mat-form-field class="field" floatPlaceholder="never">
-        <input matInput formControlName="search" placeholder="Pesquisar">
-        <span matPrefix class="prefix">
-          <mat-icon>search</mat-icon>
-        </span>
-        <mat-error>Por favor, digite sua busca!</mat-error>
-      </mat-form-field>
-    </mat-grid-tile>
-    <!-- search button -->
-    <mat-grid-tile colspan="3">
-      <button mat-raised-button color="accent" [disabled]="!formSearch.valid">Buscar</button>
-    </mat-grid-tile>
-  </mat-grid-list>
+<form id="formSearch" 
+  class="form" 
+  [class.submitted]="submitted"
+  [formGroup]="formSearch" 
+  (ngSubmit)="search()"
+  fxLayoutWrap 
+  fxLayout="row"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0">
+  
+  <!-- search bar -->
+  <div fxFlex
+    fxFlex.xs="100"
+    fxLayout="column" 
+    fxLayout.xs="row"
+    fxLayoutAlign="start top">
+    <mat-form-field class="field" floatPlaceholder="never">
+      <input matInput formControlName="search" placeholder="Pesquisar">
+      <span matPrefix class="prefix">
+        <mat-icon>search</mat-icon>
+      </span>
+      <mat-error>Por favor, digite sua busca!</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- search button -->
+  <div fxFlex="30"
+    fxFlex.xs="100"
+    fxLayout="column" 
+    fxLayout.xs="row" 
+    fxLayoutAlign="center">
+    <button class="btn" mat-raised-button color="accent">Buscar</button>  
+  </div>
 </form>

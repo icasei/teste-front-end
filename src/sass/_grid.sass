@@ -1,0 +1,18 @@
+// ## ## ## ## - GRID BREAKPOINT
+
+=breakpoint($point)
+  @if $point == xs
+    @media only screen and (max-width: 599px)
+      @content
+  @else if $point == sm
+    @media only screen and (min-width: 600px) and (max-width: 959px)
+      @content
+  @else if $point == md
+    @media only screen and (min-width: 960px) and (max-width: 1279px)
+      @content
+  @else if $point == lg
+    @media only screen and (min-width: 1280px) and (max-width: 1919px)
+      @content
+  @else if $point == xl
+    @media only screen and (min-width: 1920px) and (max-width: 5000px)
+      @content

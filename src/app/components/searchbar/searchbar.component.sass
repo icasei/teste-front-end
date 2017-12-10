@@ -1,9 +1,19 @@
 @import '~sass/mixins'
+@import '~sass/variables'
+@import '~sass/grid'
 
 #formSearch
-  $w: 480px
-  width:  $w
-  align-items: center
+  width: 480px
+  transition: $ttPrimary
+  +breakpoint(xs)
+    width: 320px
+    .btn
+      margin-top: 10px
   .field,
-  button
+  .btn
     width: 100%
+
+  &.submitted
+    transform: translateY(7px)
+    &.ng-invalid
+      transform: translateY(0px)
