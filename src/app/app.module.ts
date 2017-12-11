@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './screens/home/home.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchresultComponent } from './components/searchresult/searchresult.component';
+import { VideoComponent } from './screens/video/video.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchbarComponent,
-    SearchresultComponent
+    SearchresultComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

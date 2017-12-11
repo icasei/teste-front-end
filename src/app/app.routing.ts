@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './screens/home/home.component';
+import { VideoComponent } from './screens/video/video.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'video/:id', component: VideoComponent },
+  { path: '', component: HomeComponent }
 ]
 
 @NgModule({

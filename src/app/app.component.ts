@@ -10,6 +10,7 @@ export class AppComponent {
   loaded: Boolean = false
   searchDone: Boolean = false
   resultList
+  currentUrl
   
   constructor(
     private router: Router
@@ -19,6 +20,7 @@ export class AppComponent {
         // open load
         this.loaded = false;
       } else if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url
         // close load
         setTimeout (() => {
           this.loaded = true;

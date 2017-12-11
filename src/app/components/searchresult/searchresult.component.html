@@ -34,11 +34,17 @@
         fxLayout="column"
         fxFlex="grow"
         fxLayoutAlign="end">
-        <button mat-button mat-raised-button color="accent">
+        <a routerLink="video/{{video.id.videoId}}" mat-button mat-raised-button color="accent">
           <mat-icon>play_arrow</mat-icon>
           Assistir
-        </button>
+        </a>
       </mat-card-actions>
+    </mat-card>
+  </article>
+  <article *ngIf="result?.items.length === 0" class="empty-result">
+    <mat-card>
+      <mat-card-subtitle>Nenhum resultado para: </mat-card-subtitle>      
+      <mat-card-title>{{ result?.query }}</mat-card-title>
     </mat-card>
   </article>
 </section>

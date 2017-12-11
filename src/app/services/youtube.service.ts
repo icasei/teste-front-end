@@ -17,4 +17,9 @@ export class YoutubeService {
     return this.http.get(`${this.basePath}search?part=id,snippet&q=${query}&key=${this.apiKey}&maxResults=${pageSize}&pageToken=${pageToken}`)
       .map(res => res.json())
   }
+
+  getVideo(id: string) {
+    return this.http.get(`${this.basePath}videos?id=${id}&part=snippet,statistics&key=${this.apiKey}`)
+      .map(res => res.json())
+  }
 }
