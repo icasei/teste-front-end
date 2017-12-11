@@ -10,8 +10,9 @@ import { YoutubeService } from './../../services/youtube.service';
 })
 export class SearchbarComponent implements OnInit {
 
-  formSearch: FormGroup;
   @Output() result = new EventEmitter()
+  formSearch: FormGroup;
+  submitted: Boolean  
 
   constructor(
     fb: FormBuilder,
@@ -23,12 +24,20 @@ export class SearchbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.search()
   }
 
   search() {
-    this.youtube.search(this.formSearch.controls.search.value)
-    .subscribe(
-      data => this.result.emit(data),
-      error => {})
+    const query = this.formSearch.controls.search.value
+    this.submitted = true
+    if (this.formSearch.valid) {
+      this.youtube.search(query)
+      .subscribe(
+        data => {
+          data.query = query
+          this.result.emit(data)
+        },
+        error => {})
+    }
   }
 }

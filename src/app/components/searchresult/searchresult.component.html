@@ -1,0 +1,44 @@
+<mat-paginator #paginator 
+  [length]="paginatorConfig.length"
+  [pageSize]="paginatorConfig.pageSize"
+  [pageSizeOptions]="paginatorConfig.pageSizeOptions"
+  (page)="pageEvent = changePage($event)">
+</mat-paginator>
+<section class="grid"
+  fxLayoutWrap 
+  fxLayout="row"
+  fxLayoutAlign="start stretch"
+  fxLayoutGap="0">
+  <article *ngFor="let video of result?.items"
+    class="col"
+    fxLayout="column"
+    fxFlex="10"
+    fxFlex.xl="20"
+    fxFlex.lg="25"
+    fxFlex.md="33"
+    fxFlex.sm="50"
+    fxFlex.xs="100">
+    <mat-card fxLayout="column" fxFlex="100">
+      <img mat-card-image
+        [src]="video.snippet.thumbnails.medium.url" 
+        [width]="video.snippet.thumbnails.medium?.width" 
+        [height]="video.snippet.thumbnails.medium?.height || 180" 
+        alt="Imagem de {{ video.snippet.title }}">
+      <mat-card-title>
+        <h6>{{ video.snippet.title }}</h6>
+      </mat-card-title>
+      <mat-card-content>
+        <p>{{ video.snippet.description }}</p>
+      </mat-card-content>
+      <mat-card-actions fxFlexFill
+        fxLayout="column"
+        fxFlex="grow"
+        fxLayoutAlign="end">
+        <button mat-button mat-raised-button color="accent">
+          <mat-icon>play_arrow</mat-icon>
+          Assistir
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </article>
+</section>

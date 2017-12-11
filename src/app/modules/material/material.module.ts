@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { 
+  PageEvent,
   MatInputModule,
   MatButtonModule,
   ErrorStateMatcher,
   ShowOnDirtyErrorStateMatcher,
   MatIconModule,
   MatGridListModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatCardModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 @NgModule({
@@ -15,17 +18,22 @@ import {
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   exports: [
     MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [
-    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    PageEvent
   ]
 })
 export class MaterialModule { }
