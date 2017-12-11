@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 
 import { YoutubeService } from './../../services/youtube.service';
 
@@ -17,7 +18,8 @@ export class VideoComponent implements OnInit {
   constructor(
     public activatedRoute: ActivatedRoute,
     private sanitizer: DomSanitizer,
-    public youtube: YoutubeService
+    public youtube: YoutubeService,
+    public location: Location
   ) {
     this.activatedRoute.params.subscribe(params => {
       this.videoId = params['id']
@@ -32,6 +34,10 @@ export class VideoComponent implements OnInit {
   }
 
   videoUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video.id}`)
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video.id}?autoplay=1`)
+  }
+
+  goBack() {
+    this.location.back()
   }
 }

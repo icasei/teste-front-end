@@ -10,11 +10,14 @@
   </iframe>
   </div>
   <mat-card-content>
-    <mat-card-subtitle>{{ video?.snippet.title }}</mat-card-subtitle>
+    <mat-card-title>{{ video?.snippet.title }}</mat-card-title>
+    <mat-card-subtitle>{{ video?.statistics.viewCount }} visualizações</mat-card-subtitle>
     <p>{{ video?.snippet.description }}</p>
   </mat-card-content>
   <mat-card-actions>
-    {{ video?.statistics.viewCount }} visualizações
-    <button mat-button>VOLTAR</button>
+    <button mat-button mat-raised-button color="accent" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      VOLTAR
+    </button>
   </mat-card-actions>
 </mat-card>

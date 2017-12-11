@@ -32,6 +32,5 @@ export class AppComponent {
   searchResult(result) {
     this.searchDone = true
     this.resultList = result
-    console.log(this.resultList)
   }
 }
