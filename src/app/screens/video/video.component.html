@@ -1,3 +1,20 @@
-<p>
-  video works!
-</p>
+<mat-card id="video-card">
+  <div mat-card-image class="player">
+  <iframe
+    *ngIf="video?.id"
+    [src]="videoUrl()"
+    frameborder="0" 
+    gesture="media" 
+    allow="encrypted-media" 
+    allowfullscreen>
+  </iframe>
+  </div>
+  <mat-card-content>
+    <mat-card-subtitle>{{ video?.snippet.title }}</mat-card-subtitle>
+    <p>{{ video?.snippet.description }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    {{ video?.statistics.viewCount }} visualizações
+    <button mat-button>VOLTAR</button>
+  </mat-card-actions>
+</mat-card>
