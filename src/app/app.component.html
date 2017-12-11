@@ -3,7 +3,7 @@
     <searchbar (result)="searchResult($event)"></searchbar>
   </mat-toolbar>
   <section class="container">
-    <searchresult *ngIf="resultList?.items" [result]="resultList"></searchresult>
+    <searchresult *ngIf="resultList?.items" [result]="resultList" (search)="searchResult($event)"></searchresult>
     <router-outlet></router-outlet>
   </section>
 </main>

@@ -24,14 +24,19 @@ export class SearchbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.search()
   }
 
   search() {
+    const query = this.formSearch.controls.search.value
     this.submitted = true
     if (this.formSearch.valid) {
-      this.youtube.search(this.formSearch.controls.search.value)
+      this.youtube.search(query)
       .subscribe(
-        data => this.result.emit(data),
+        data => {
+          data.query = query
+          this.result.emit(data)
+        },
         error => {})
     }
   }

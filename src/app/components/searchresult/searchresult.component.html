@@ -1,3 +1,9 @@
+<mat-paginator #paginator 
+  [length]="paginatorConfig.length"
+  [pageSize]="paginatorConfig.pageSize"
+  [pageSizeOptions]="paginatorConfig.pageSizeOptions"
+  (page)="pageEvent = changePage($event)">
+</mat-paginator>
 <section class="grid"
   fxLayoutWrap 
   fxLayout="row"

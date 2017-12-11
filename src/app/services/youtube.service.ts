@@ -13,8 +13,8 @@ export class YoutubeService {
     this.apiKey = 'AIzaSyDU7GXqdPIodmqsJYeNtNS5DmJzVuXDF2Y'
   }
 
-  search(query: string) {
-    return this.http.get(`${this.basePath}search?part=id,snippet&q=${query}&key=${this.apiKey}`)
+  search(query: string, pageSize: number = 8) {
+    return this.http.get(`${this.basePath}search?part=id,snippet&q=${query}&key=${this.apiKey}&maxResults=${pageSize}`)
       .map(res => res.json())
   }
 }
