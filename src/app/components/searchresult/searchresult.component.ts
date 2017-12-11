@@ -24,34 +24,41 @@ export class SearchresultComponent implements OnInit {
     paginatorInt.nextPageLabel = 'próxima página' 
   }
 
-  ngOnInit() {
-    this.paginatorConfig = {
-      length: this.result.pageInfo.totalResults,
-      pageSize: this.result.pageInfo.resultsPerPage,
-      pageSizeOptions: [8, 10, 25, 50]
-    }
-  }
-
   ngOnChanges(changes) {
     changes.result.previousValue && (changes.result.currentValue.query !== changes.result.previousValue.query)
-      ? this.paginatorConfig.pageSize = 8
+      ? this.paginatorInit()
       : null
   }
 
-  changePage(page?: PageEvent) {
-    if (page.pageSize !== this.paginatorConfig.pageSize) {
-      this.youtube.search(this.result.query, page.pageSize).subscribe(
-        data => {
-          this.paginatorConfig.pageSize = page.pageSize          
-          data.query = this.result.query
-          this.search.emit(data)
-        },
-        error => {})
+  ngOnInit() {
+    this.paginatorInit()
+  }
+
+  paginatorInit() {
+    this.paginatorConfig = {
+      length: this.result.pageInfo.totalResults,
+      pageSize: this.result.pageInfo.resultsPerPage,
+      pageSizeOptions: [10, 25, 50],
+      pageIndex: 0
     }
   }
-
-  nextPage() {
-    console.log('sdsd')    
+  
+  changePage(page?: PageEvent) {
+    let pageToken
+    if (page.pageIndex > this.paginatorConfig.pageIndex) {
+      pageToken = this.result.nextPageToken
+    } else if (page.pageIndex < this.paginatorConfig.pageIndex) {
+      pageToken = this.result.prevPageToken
+    } else {
+      pageToken = ''
+    }
+    this.youtube.search(this.result.query, page.pageSize, pageToken).subscribe(
+      data => {
+        this.paginatorConfig.pageIndex = page.pageIndex
+        this.paginatorConfig.pageSize = page.pageSize
+        data.query = this.result.query
+        this.search.emit(data)
+      },
+      error => {})
   }
-
 }
