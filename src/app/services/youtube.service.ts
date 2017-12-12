@@ -2,24 +2,20 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class YoutubeService {
 
-  basePath: string
-  apiKey: string
-
-  constructor(public http: Http) {
-    this.basePath = 'https://www.googleapis.com/youtube/v3/'
-    this.apiKey = 'AIzaSyDU7GXqdPIodmqsJYeNtNS5DmJzVuXDF2Y'
-  }
+  constructor(public http: Http) {}
 
   search(query: string, pageSize: number = 10, pageToken: string = '') {
-    return this.http.get(`${this.basePath}search?part=id,snippet&q=${query}&key=${this.apiKey}&maxResults=${pageSize}&pageToken=${pageToken}`)
+    return this.http.get(`${environment.API.youtube.host}search?part=id,snippet&q=${query}&key=${environment.API.youtube.key}&maxResults=${pageSize}&pageToken=${pageToken}`)
       .map(res => res.json())
   }
 
   getVideo(id: string) {
-    return this.http.get(`${this.basePath}videos?id=${id}&part=snippet,statistics&key=${this.apiKey}`)
+    return this.http.get(`${environment.API.youtube.host}videos?id=${id}&part=snippet,statistics&key=${environment.API.youtube.key}`)
       .map(res => res.json())
   }
 }

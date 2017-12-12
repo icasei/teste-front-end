@@ -4,5 +4,14 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  app: {
+    title: 'Teste iCasei'
+  },
+  API: {
+    youtube: {
+      host: 'https://www.googleapis.com/youtube/v3/',
+      key: 'AIzaSyDU7GXqdPIodmqsJYeNtNS5DmJzVuXDF2Y'
+    }
+  }
 };

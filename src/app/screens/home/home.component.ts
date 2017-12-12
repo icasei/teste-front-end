@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public title: Title) {
+    this.title.setTitle(`Faça sua busca - ${environment.app.title}`)
+  }
 
   ngOnInit() {
   }

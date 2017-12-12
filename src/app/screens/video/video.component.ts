@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
+import { environment } from '../../../environments/environment';
 import { YoutubeService } from './../../services/youtube.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class VideoComponent implements OnInit {
 
   constructor(
     public activatedRoute: ActivatedRoute,
+    public title: Title,
     private sanitizer: DomSanitizer,
     public youtube: YoutubeService,
     public location: Location
@@ -24,12 +26,16 @@ export class VideoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.videoId = params['id']
     })
+    
   }
 
   ngOnInit() {
     this.youtube.getVideo(this.videoId)
     .subscribe(
-      video => this.video = video.items[0],
+      video => {
+        this.video = video.items[0]
+        this.title.setTitle(`${this.video.snippet.title} - ${environment.app.title}`)
+      },
       error => {})
   }
 
