@@ -1,11 +1,35 @@
 import { TestBed, async } from '@angular/core/testing';
+import { RouterOutlet } from '@angular/router';
+import { MatToolbar, MatIcon, MatError, MatFormField, MatPaginator, MatCardTitle, MatCardContent, MatCardActions, MatCardSubtitle, MatCard, MatSelect, MatOption, MatTooltip } from '@angular/material';
+import { CdkOverlayOrigin } from '@angular/cdk/overlay';
+
 import { AppComponent } from './app.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { SearchresultComponent } from './components/searchresult/searchresult.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
-      ],
+        AppComponent,
+        SearchbarComponent,
+        SearchresultComponent,
+        MatToolbar,
+        MatIcon,
+        MatError,
+        MatPaginator,
+        MatCard,
+        MatCardTitle,
+        MatCardSubtitle,
+        MatCardContent,
+        MatCardActions,
+        MatFormField,
+        MatSelect,
+        MatOption,
+        MatTooltip,
+        CdkOverlayOrigin,
+        RouterOutlet,
+      ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
