@@ -1,0 +1,25 @@
+@import '~sass/mixins'
+@import '~sass/variables'
+@import '~sass/grid'
+
+#formSearch
+  width: 480px
+  transition: $ttPrimary
+  +breakpoint(xs)
+    width: 300px
+    .btn
+      margin-top: 10px
+    .field
+      height: 60px
+    &.submitted.ng-invalid
+      .field
+        height: 80px
+  .field,
+  .btn
+    width: 100%
+    transition: $ttPrimary
+  
+  &.submitted
+    transform: translateY(7px)
+    &.ng-invalid
+      transform: translateY(-2px)

@@ -1,0 +1,27 @@
+@import '~sass/mixins'
+@import '~sass/variables'
+@import '~sass/grid'
+
+#wrapper
+  height: 100%
+.container
+  padding: 10px
+
+#navbar
+  width: 100%
+  min-height: 100%
+  transition: $ttPrimary
+  justify-content: center
+  searchbar
+    height: 100px
+    +breakpoint(xs)
+      height: 150px
+.loaded
+
+.searchDone
+  #navbar
+    min-height: 0
+    height: 80px
+    +breakpoint(xs)
+      height: 130px
+  

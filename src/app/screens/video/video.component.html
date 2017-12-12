@@ -1,0 +1,23 @@
+<mat-card id="video-card">
+  <div mat-card-image class="player">
+  <iframe
+    *ngIf="video?.id"
+    [src]="videoUrl()"
+    frameborder="0" 
+    gesture="media" 
+    allow="encrypted-media" 
+    allowfullscreen>
+  </iframe>
+  </div>
+  <mat-card-content>
+    <mat-card-title>{{ video?.snippet.title }}</mat-card-title>
+    <mat-card-subtitle>{{ video?.statistics.viewCount }} visualizações</mat-card-subtitle>
+    <p>{{ video?.snippet.description }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button mat-raised-button color="accent" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      VOLTAR
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,9 @@
+<main id="wrapper" [class.loaded]="loaded" [class.searchDone]="searchDone || currentUrl != '/'">
+  <mat-toolbar id="navbar" class="mat-elevation-z4">
+    <searchbar (result)="searchResult($event)"></searchbar>
+  </mat-toolbar>
+  <section class="container">
+    <searchresult *ngIf="resultList?.items && currentUrl === '/'" [result]="resultList" (search)="searchResult($event)"></searchresult>
+    <router-outlet></router-outlet>
+  </section>
+</main>
