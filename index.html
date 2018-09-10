@@ -3,14 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Teste iCasei: Front-End</title>
+	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
   </head>
   <body>
-    <form id="search-film">
-      <input type="text" id="search-film-input" placeholder="Procure seu filme">
-      <button type="submit" id="search-film-submit">Pesquisar</button>
-    </form>
-    <div id="results"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="application.js"></script>
+	<main>
+		<div class="container">
+			<form id="search-form" class="col s12 center">
+				<input type="text" id="search-film-input" placeholder="Pesquisar" class="col s10">
+				<button type="submit" id="search-film-submit" class="col s2 btn"> <i class="material-icons">search</i> </button>
+			</form>
+		</div>	
+		<article class="row container" id="container">
+			
+		</article>
+		
+		<script src="js/application.js"></script>
+		
+	</main>
+	<footer class="page-footer">
+		Designed by: Renata Augusto
+	</footer>
   </body>
 </html>
