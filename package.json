@@ -1,0 +1,75 @@
+{
+  "name": "youtube-react",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "react",
+    "es6",
+    "webpack",
+    "babel",
+    "sass"
+  ],
+  "author": "",
+  "license": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "scripts": {
+    "dev": "webpack-dev-server --config=configs/webpack/dev --inline --hot",
+    "build": "rm -f -r -d dist && webpack -p --config=configs/webpack/prod",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg)$": "jest-static-stubs/jpg",
+      "^.+\\.gif$": "jest-static-stubs/gif",
+      "^.+\\.png$": "jest-static-stubs/png",
+      "^.+\\.(eot|otf|svg|ttf|woff|woff2|mp3|m4a|aac|oga)$": "identity-obj-proxy"
+    }
+  },
+  "devDependencies": {
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
+    "animejs": "^2.2.0",
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "image-webpack-loader": "^4.3.1",
+    "jest": "^23.5.0",
+    "jest-css-modules": "^1.1.0",
+    "jest-static-stubs": "0.0.1",
+    "node-sass": "^4.9.3",
+    "react": "^16.4.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.4.2",
+    "react-hot-loader": "^4.3.4",
+    "react-test-renderer": "^16.5.0",
+    "react-youtube": "^7.6.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-dev-server": "^3.1.7",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {}
+}

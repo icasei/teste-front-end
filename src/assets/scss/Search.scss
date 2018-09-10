@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'mixin';
+
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-left: -4.2em;
+}
+
+.logo-hidden {
+	@extend %visuallyhidden;
+}
+
+.search {
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 30%;
+}
+
+.doSearch {
+	position: relative;
+	width: 100%;
+	height: auto;
+	top: 30%;
+	margin-bottom: 2em;
+	@include animation(0s, 0.3s, toTop);
+}
+
+@include keyframe(toTop) {
+  from{
+    top: 50%;
+  }
+  to{
+    top: 0%;
+  }
+}

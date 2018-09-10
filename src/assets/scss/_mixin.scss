@@ -1,0 +1,133 @@
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin background($args...) {
+  -webkit-background: $args;
+  -moz-background: $args;
+  background: $args;
+}
+
+@mixin border-radius($property) {
+  -webkit-border-radius: $property;
+  -moz-border-radius: $property;
+  border-radius: $property;
+}
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    transition: $args;
+}
+
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin animation ($delay, $duration, $animation) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: forwards;
+
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: forwards; 
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: forwards; 
+}
+
+@mixin keyframe ($animation_name) {
+  @-webkit-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin fadeIn($direction:"down", $defaultTransform: "") {
+  $name: unique-id();
+  $transform: 0px;
+  @if $direction=="down" {
+    $name: "fadeInDown-" + $name;
+    $transform: -20px;
+  }
+  @if $direction=="up" {
+    $name: "fadeInUp-" + $name;
+    $transform: 20px;
+  }
+  animation: #{$name} 0.3s ease-in 0s 1 forwards;
+  pointer-events: all;
+  @keyframes #{$name} {
+    0% {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY($transform) #{$defaultTransform};
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0) #{$defaultTransform};
+    }
+  }
+}
+
+@mixin fadeOut($direction:"down", $defaultTransform: "") {
+  $name: unique-id();
+  $transform: 0px;
+  @if $direction=="down" {
+    $name: "fadeOutDown-" + $name;
+    $transform: 20px;
+  }
+  @if $direction=="up" {
+    $name: "fadeOutUp-" + $name;
+    $transform: -20px;
+  }
+  animation: #{$name} 0.3s ease-in 0s 1 forwards;
+  pointer-events: none;
+  @keyframes #{$name} {
+    0% {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0) #{$defaultTransform};
+    }
+    100% {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY($transform) #{$defaultTransform};
+    }
+  }
+}
+
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}

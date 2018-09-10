@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="MuiGrid-container-1 MuiGrid-align-items-xs-center-9 MuiGrid-justify-xs-center-18 search"
+  >
+    <div
+      className="logo"
+    >
+      <img
+        height="100"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
+      />
+    </div>
+    <div
+      className="MuiGrid-item-2 MuiGrid-grid-xs-8-37"
+    >
+      <div
+        className="MuiInput-root-98 MuiInput-error-103 MuiInput-fullWidth-105 MuiInput-underline-102"
+        onKeyPress={[Function]}
+        required={true}
+      >
+        <input
+          aria-invalid={true}
+          aria-label="Buscar"
+          autoFocus={true}
+          className="MuiInput-input-106"
+          id="searchInput"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Pesquisar"
+          required={true}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="MuiGrid-item-2 MuiGrid-grid-xs-2-31"
+    >
+      <button
+        className="MuiButtonBase-root-117 MuiIconButton-root-111"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label-116"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-120"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root-127"
+        />
+      </button>
+    </div>
+  </div>
+  <div />
+</div>
+`;

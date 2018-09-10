@@ -1,0 +1,4 @@
+dist/
+node_modules/
+tests/__coverage__/
+youtube/credentials.js

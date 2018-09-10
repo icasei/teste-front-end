@@ -1,0 +1,16 @@
+// @import 'variables';
+@import 'mixin';
+
+.spinner {
+	width: 100%;
+	text-align: center;
+	margin-top: 6em;
+}
+
+.show {
+	@include fadeIn();
+}
+
+.hide {
+	@include fadeOut();
+}
