@@ -22,7 +22,7 @@ export default function reducer(state = INITIAL_STATE, action) {
         return {...state, prevPageToken: action.payload.prevPageToken, nextPageToken: action.payload.nextPageToken}
 
       case 'VIDEO_DETAIL':
-        return {...state, detail: action.payload.videoDetail}
+        return {...state, detail: action.payload.detail}
 
       default:
         return state

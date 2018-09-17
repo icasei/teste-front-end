@@ -32,7 +32,7 @@ export default class VideoList extends Component {
 				link: item.id.videoId
 			}
 			
-			return <VideoCard key={index} data={data} showDetail={this.props.showDetail} />
+			return <VideoCard key={index} data={data} />
 		})
 		
 		this.props.dispatch(setVideoPagination(videos.prevPageToken, videos.nextPageToken))

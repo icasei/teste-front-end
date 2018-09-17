@@ -9,6 +9,12 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
+import {connect} from 'react-redux'
+import {setVideoDetail} from '../actions/youtubeActions'
+
+
+@connect((store) => {})
+
 
 export default class VideoCard extends Component {
 	constructor(props) {
@@ -18,7 +24,7 @@ export default class VideoCard extends Component {
 
 	showDetail() {
 		videoDetail(this.props.data.link, data => {
-			this.props.showDetail(data.data.items)
+			this.props.dispatch(setVideoDetail(data.data.items[0]))
 		})
 	}
 

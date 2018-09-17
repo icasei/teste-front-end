@@ -19,7 +19,8 @@ import {setVideoList} from '../actions/youtubeActions'
     videos: store.youtube.videos,
     pagination: store.youtube.pagination,
     prevPageToken: store.youtube.prevPageToken,
-    nextPageToken: store.youtube.nextPageToken
+    nextPageToken: store.youtube.nextPageToken,
+    detail: store.youtube.detail
   }
 })
 
@@ -63,7 +64,8 @@ export default class App extends Component {
   }
 
   renderResults() {
-    const {fetching, query, videos, pagination, prevPageToken, nextPageToken} = this.props
+    const {fetching, query, videos, pagination, prevPageToken, nextPageToken, detail} = this.props
+
 
     if (query && fetching) {
       if (pagination == 'prev') {
@@ -74,10 +76,11 @@ export default class App extends Component {
         this.onSearch(query)
       }
     }
+    
 
-    if (this.state.videoDetail) {
+    if (detail) {
       return (
-        <VideoDetail data={this.state.videoDetail} hideDetail={this.hideDetail} />
+        <VideoDetail />
       )
     } else {
       return (
@@ -85,8 +88,13 @@ export default class App extends Component {
           {videos && !fetching
             ? 
               <div>
-                <VideoList showDetail={this.showDetail} />
-                <Carousel showDetail={this.showDetail} xsQuantity={12} smQuantity={6} mdQuantity={3} speed={5} />
+                <VideoList />
+                <Carousel 
+                  xsQuantity={12} 
+                  smQuantity={6} 
+                  mdQuantity={3} 
+                  speed={5} 
+                />
               </div>
             : fetching && <Spinner />
           }

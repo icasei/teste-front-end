@@ -36,7 +36,7 @@ export default class Carousel extends Component {
 				link: item.id.videoId
 			}
 
-			return <CarouselCard key={index} data={data} xsQuantity={this.props.xsQuantity} smQuantity={this.props.smQuantity} mdQuantity={this.props.mdQuantity} showDetail={this.props.showDetail} />
+			return <CarouselCard key={index} data={data} xsQuantity={this.props.xsQuantity} smQuantity={this.props.smQuantity} mdQuantity={this.props.mdQuantity} />
 		})
 
 

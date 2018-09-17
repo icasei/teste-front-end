@@ -7,6 +7,12 @@ import CardActions from '@material-ui/core/CardActions'
 import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 
+import {connect} from 'react-redux'
+import {setVideoDetail} from '../../actions/youtubeActions'
+
+
+@connect((store) => {})
+
 
 export default class CarouselCard extends Component {
 	constructor(props) {
@@ -16,7 +22,7 @@ export default class CarouselCard extends Component {
 
 	showDetail() {
 		videoDetail(this.props.data.link, data => {
-			this.props.showDetail(data.data.items)
+			this.props.dispatch(setVideoDetail(data.data.items[0]))
 		})
 	}
 
