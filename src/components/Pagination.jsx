@@ -6,27 +6,40 @@ import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import NavigateNext from '@material-ui/icons/NavigateNext'
 import Typography from '@material-ui/core/Typography'
 
+import {connect} from 'react-redux'
+import {setSearch} from '../actions/youtubeActions'
+
+
+@connect((store) => {
+	return {
+		prevPageToken: store.youtube.prevPageToken,
+		nextPageToken: store.youtube.nextPageToken
+	}
+})
+
 
 export default class Pagination extends Component {
-	constructor(props) {
-		super(props)
+	constructor() {
+		super()
 		this.state = {}
+		this.goPrev = this.goPrev.bind(this)
+		this.goNext = this.goNext.bind(this)
 	}
 
 	goPrev() {
-		this.props.onSearch(this.props.query, this.props.prev)
+		this.props.dispatch(setSearch('prev'))
 	}
 
 	goNext() {
-		this.props.onSearch(this.props.query, this.props.next)
+		this.props.dispatch(setSearch('next'))
 	}
 
 	render() {
 		return (
 			<Grid container direction="row" justify="space-between" alignItems="flex-start" spacing={8}>
 				<Grid item xs={5}>
-					{this.props.prev &&
-						<Button fullWidth="true" size="medium" onClick={this.goPrev.bind(this)}>
+					{this.props.prevPageToken &&
+						<Button fullWidth={true} size="medium" onClick={this.goPrev}>
 							<NavigateBefore />
 							<Typography variant="button">
 								Anterior
@@ -35,8 +48,8 @@ export default class Pagination extends Component {
 					}
 				</Grid>
 				<Grid item xs={5}>
-					{this.props.next &&
-						<Button fullWidth="true" size="medium" onClick={this.goNext.bind(this)}>
+					{this.props.nextPageToken &&
+						<Button fullWidth={true} size="medium" onClick={this.goNext}>
 							<Typography variant="button">
 								Próximo
 							</Typography>

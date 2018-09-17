@@ -1,20 +1,38 @@
 import 'assets/scss/App.scss'
 import React, {Component} from 'react'
-import {getVideos} from '../youtube/api'
 import Search from 'components/Search'
 import VideoList from 'components/VideoList'
 import Pagination from 'components/Pagination'
 import Spinner from 'components/Spinner'
 import VideoDetail from 'components/VideoDetail'
 import Carousel from 'components/carousel/Carousel'
+import {getVideos} from '../youtube/api'
+
+import {connect} from 'react-redux'
+import {setVideoList} from '../actions/youtubeActions'
+
+
+@connect((store) => {
+  return {
+    fetching: store.youtube.fetching,
+    query: store.youtube.query,
+    videos: store.youtube.videos,
+    pagination: store.youtube.pagination,
+    prevPageToken: store.youtube.prevPageToken,
+    nextPageToken: store.youtube.nextPageToken
+  }
+})
 
 
 export default class App extends Component {
   constructor() {
     super()
     this.state = {}
+    this.hideDetail = this.hideDetail.bind(this)
+    this.showDetail = this.showDetail.bind(this)
+    this.onSearch = this.onSearch.bind(this)
   }
-  
+
   scrollUp() {
     var doc = document.documentElement
     var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)
@@ -26,26 +44,13 @@ export default class App extends Component {
   }
 
   onSearch(query, page = '') {
-    this.setState({
-        query: query,
-        queryResult: undefined,
-        prevPageToken: undefined,
-        nextPageToken: undefined
-      }, 
-      () => {
-        getVideos(query, data => {
-          this.setState({queryResult: data.data})
-        }, page)
+    getVideos(query, data => {
+      this.props.dispatch(setVideoList(data.data))
+    }, page)
 
-        if (page.length > 0) {
-          this.scrollUp()
-        }
-      }
-    )
-  }
-
-  onPagination(prev, next) {
-    this.setState({prevPageToken: prev, nextPageToken: next})
+    if (page.length > 0) {
+      this.scrollUp()
+    }
   }
 
   showDetail(data) {
@@ -58,24 +63,36 @@ export default class App extends Component {
   }
 
   renderResults() {
+    const {fetching, query, videos, pagination, prevPageToken, nextPageToken} = this.props
+
+    if (query && fetching) {
+      if (pagination == 'prev') {
+        this.onSearch(query, prevPageToken)
+      } else if (pagination == 'next') {
+        this.onSearch(query, nextPageToken)
+      } else {
+        this.onSearch(query)
+      }
+    }
+
     if (this.state.videoDetail) {
       return (
-        <VideoDetail data={this.state.videoDetail} hideDetail={this.hideDetail.bind(this)} />
+        <VideoDetail data={this.state.videoDetail} hideDetail={this.hideDetail} />
       )
     } else {
       return (
         <div>
-          {this.state.queryResult
+          {videos && !fetching
             ? 
               <div>
-                <VideoList data={this.state.queryResult} onPagination={this.onPagination.bind(this)} showDetail={this.showDetail.bind(this)} />
-                <Carousel data={this.state.queryResult} showDetail={this.showDetail.bind(this)} xsQuantity={12} smQuantity={6} mdQuantity={3} speed={5} />
+                <VideoList showDetail={this.showDetail} />
+                <Carousel showDetail={this.showDetail} xsQuantity={12} smQuantity={6} mdQuantity={3} speed={5} />
               </div>
-            : this.state.query && <Spinner />
+            : fetching && <Spinner />
           }
 
-          {(this.state.prevPageToken || this.state.nextPageToken) &&
-            <Pagination onSearch={this.onSearch.bind(this)} query={this.state.query} prev={this.state.prevPageToken} next={this.state.nextPageToken} />
+          {(prevPageToken || nextPageToken) &&
+            <Pagination />
           }
         </div>
       )
@@ -85,7 +102,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Search onSearch={this.onSearch.bind(this)} />
+        <Search />
         {this.renderResults()}
       </div>
     )

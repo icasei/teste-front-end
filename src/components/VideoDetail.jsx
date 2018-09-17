@@ -14,6 +14,7 @@ export default class VideoDetail extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {}
+		this.hideDetail = this.hideDetail.bind(this)
 	}
 
 	componentDidMount() {
@@ -51,7 +52,7 @@ export default class VideoDetail extends Component {
 				<div>
 					<Grid container direction="row" justify="center" alignItems="center" spacing={0} className="gridDetail">
 						<Grid item xs={2}>
-							<Button size="small" color="primary" onClick={this.hideDetail.bind(this)}>
+							<Button size="small" color="primary" onClick={this.hideDetail}>
 								<BackIcon className="backButton" />
 							</Button>
 						</Grid>

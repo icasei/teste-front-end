@@ -6,15 +6,22 @@ import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 import ytLogo from 'assets/img/youtube.png'
 
+import {connect} from 'react-redux'
+import {setQuery} from '../actions/youtubeActions'
+
+
+@connect((store) => ({}))
+
 
 export default class Search extends Component {
-	constructor(props) {
-		super(props)
+	constructor() {
+		super()
 		this.state = {
 			inputError: true,
 			keyPressed: '',
 			doSearch: false
 		}
+		this.doSearch = this.doSearch.bind(this)
 	}
 
 	doSearch(e) {
@@ -24,7 +31,7 @@ export default class Search extends Component {
 			}, () => {
 				if (!this.state.inputError && (this.state.keyPressed === undefined || this.state.keyPressed === 'Enter')) {
 					this.setState({doSearch: true})
-					this.props.onSearch(searchInput.value)
+					this.props.dispatch(setQuery(searchInput.value))
 				}
 			}
 		)
@@ -48,7 +55,7 @@ export default class Search extends Component {
 							inputProps={{
 								'aria-label': 'Buscar',
 							}}
-							onKeyPress={this.doSearch.bind(this)}
+							onKeyPress={this.doSearch}
 							error
 						/>
 					:
@@ -59,12 +66,12 @@ export default class Search extends Component {
 							inputProps={{
 								'aria-label': 'Buscar',
 							}}
-							onKeyPress={this.doSearch.bind(this)}
+							onKeyPress={this.doSearch}
 						/>
 					}
 				</Grid>
 				<Grid item xs={2}>
-					<IconButton onClick={this.doSearch.bind(this)}>
+					<IconButton onClick={this.doSearch}>
 						<SearchIcon />
 					</IconButton>
 				</Grid>

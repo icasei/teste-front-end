@@ -1,7 +1,6 @@
 // production config
 const merge = require('webpack-merge');
 const {resolve} = require('path');
-
 const commonConfig = require('./common');
 
 module.exports = merge(commonConfig, {
@@ -13,5 +12,5 @@ module.exports = merge(commonConfig, {
     path: resolve(__dirname, '../../dist'),
     publicPath: '/',
   },
-  plugins: [],
+  plugins: []
 });

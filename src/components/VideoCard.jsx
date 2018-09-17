@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography'
 export default class VideoCard extends Component {
 	constructor(props) {
 		super(props)
+		this.showDetail = this.showDetail.bind(this)
 	}
 
 	showDetail() {
@@ -42,7 +43,7 @@ export default class VideoCard extends Component {
 						</Typography>
 					</CardContent>
 					<CardActions>
-						<Button size="small" color="primary" onClick={this.showDetail.bind(this)}>
+						<Button size="small" color="primary" onClick={this.showDetail}>
 							DETALHES DO VIDEO
         		</Button>
 					</CardActions>

@@ -11,8 +11,12 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: ['babel-loader'],
         exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: [['env', {modules: false}], 'es2015', 'react', 'stage-2'],
+          "plugins": ["transform-decorators-legacy", "transform-es2015-modules-commonjs", "transform-object-rest-spread", "syntax-decorators"]
+        }
       },
       {
         test: /\.css$/,
@@ -41,10 +45,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({template: 'index.html',}),
   ],
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-  },
   performance: {
     hints: false,
   },

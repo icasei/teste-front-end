@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button'
 export default class CarouselCard extends Component {
 	constructor(props) {
 		super(props)
+		this.showDetail = this.showDetail.bind(this)
 	}
 
 	showDetail() {
@@ -29,7 +30,7 @@ export default class CarouselCard extends Component {
 						title={this.props.data.title}
 					/>
 					<CardActions>
-						<Button size="small" color="primary" onClick={this.showDetail.bind(this)}>
+						<Button size="small" color="primary" onClick={this.showDetail}>
 							DETALHES DO VIDEO
 					</Button>
 					</CardActions>

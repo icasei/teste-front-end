@@ -3,33 +3,47 @@ import React, {Component} from 'react'
 import Grid from '@material-ui/core/Grid'
 import VideoCard from 'components/VideoCard'
 
+import {connect} from 'react-redux'
+import {setVideoPagination} from '../actions/youtubeActions'
+
+
+@connect((store) => {
+	return {
+		videos: store.youtube.videos
+	}
+})
+
 
 export default class VideoList extends Component {
-	constructor(props) {
-		super(props)
+	constructor() {
+		super()
 		this.state = {}
 	}
 
-	componentDidMount() {
-		const videos = this.props.data.items.map((item, index) => {
+	renderResults() {
+		const {videos} = this.props
+
+		const videosCards = videos.items.map((item, index) => {
 			const data = {
-										thumb: item.snippet.thumbnails.medium.url,
-										title: item.snippet.title,
-										channel: item.snippet.channelTitle,
-										description: item.snippet.description,
-										link: item.id.videoId
-									}
+				thumb: item.snippet.thumbnails.medium.url,
+				title: item.snippet.title,
+				channel: item.snippet.channelTitle,
+				description: item.snippet.description,
+				link: item.id.videoId
+			}
 			
 			return <VideoCard key={index} data={data} showDetail={this.props.showDetail} />
 		})
-		this.props.onPagination(this.props.data.prevPageToken, this.props.data.nextPageToken)
-		this.setState({ items: videos })
+		
+		this.props.dispatch(setVideoPagination(videos.prevPageToken, videos.nextPageToken))
+
+		return videosCards
 	}
 	
 	render() {
 		return (
 			<Grid container direction="row" justify="space-between" alignItems="stretch" spacing={8} className="list">
-				{this.state.items}
+				{this.renderResults()}
 			</Grid>
 		)
 	}

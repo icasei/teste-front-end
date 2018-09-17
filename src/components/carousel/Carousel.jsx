@@ -3,15 +3,31 @@ import React, {Component} from 'react'
 import CarouselCard from 'components/carousel/CarouselCard'
 import anime from 'animejs'
 
+import {connect} from 'react-redux'
+
+
+@connect((store) => {
+	return {
+		videos: store.youtube.videos
+	}
+})
+
 
 export default class Carousel extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {}
+		this.state = {
+			speed: this.props.speed,
+			items: null,
+			cards: null,
+			animation: null
+		}
 	}
 
 	componentDidMount() {
-		const videos = this.props.data.items.map((item, index) => {
+		const {videos} = this.props
+
+		const videosCards = videos.items.map((item, index) => {
 			const data = {
 				thumb: item.snippet.thumbnails.medium.url,
 				title: item.snippet.title,
@@ -19,23 +35,26 @@ export default class Carousel extends Component {
 				description: item.snippet.description,
 				link: item.id.videoId
 			}
+
 			return <CarouselCard key={index} data={data} xsQuantity={this.props.xsQuantity} smQuantity={this.props.smQuantity} mdQuantity={this.props.mdQuantity} showDetail={this.props.showDetail} />
 		})
-		
+
+
 		this.setState({
-			items: videos,
-			speed: this.props.speed,
-			container: document.querySelector('.carousel-container')
+			items: videosCards
 		}, () => {
-			this.arrangeItems(document.querySelectorAll('.carousel-card'))
+			this.arrangeItems()
 		})
+
 
 		window.addEventListener('resize', () => this.resize())
 	}
 
-	arrangeItems(cards) {
+	arrangeItems() {
+		const cards = document.querySelectorAll(".carousel-card")
+
 		this.setState({
-			cards: cards
+				cards: cards
 		}, () => {
 			cards.forEach((item, key) => {
 				const positionX = ((item.getBoundingClientRect().width + 12) * key)
@@ -97,10 +116,7 @@ export default class Carousel extends Component {
 
 	resize() {
 		this.state.animation.pause()
-
-		this.setState({items: this.state.items}, () => {
-			this.arrangeItems(document.querySelectorAll('.carousel-card'))
-		})
+		this.arrangeItems()
 	}
 
 	onMouseEnter() {
