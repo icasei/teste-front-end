@@ -1,9 +1,128 @@
-<template> </template>
+<template>
+  <div class="content">
+    <div class="content__search-bar">
+      <input
+        v-model="searchInput"
+        id="search_input"
+        type="text"
+        name="search"
+        class="content__search-bar--input"
+        placeholder=" "
+        @keypress.enter="getResults"
+      />
+      <label for="search_input" class="content__search-bar--label">
+        Pesquisar
+      </label>
+      <label for="search_input" class="content__search-bar--info">
+        Pressione &lt;Enter&gt; para buscar
+      </label>
+    </div>
+    <result-list :video-list="resultList" />
+  </div>
+</template>
 
 <script>
+import ResultList from '@/components/ResultList'
+
 export default {
   name: 'TheBody',
+  components: { ResultList },
+  data() {
+    return {
+      searchInput: '',
+      resultList: [],
+      nextPageToken: '',
+    }
+  },
+  methods: {
+    getResults() {
+      const API_KEY = 'AIzaSyBFc4O83TP3ofYcNYDVG-3vdf9HGQVkmPQ'
+      const maxResults = 10
+      const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search'
+      const params = {
+        part: 'id,snippet',
+        q: this.searchInput,
+        maxResults,
+        key: API_KEY,
+      }
+      this.$http
+        .get(YOUTUBE_URL, { params })
+        .then(res => {
+          console.log(res.data)
+          this.resultList = res.data.items
+          this.nextPageToken = res.data.nextPageToken
+        })
+        .catch(err => console.log(err))
+    },
+    infiniteScroll() {
+      window.addEventListener('scroll', () => {
+        if (endOfPage) {
+          console.log('fim')
+        }
+      })
+    },
+  },
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.content__search-bar {
+  overflow: hidden;
+  position: relative;
+}
+
+.content__search-bar--label {
+  display: block;
+  position: absolute;
+  font-size: 0.75rem;
+  transform: translateY(8px);
+  top: 0;
+  transition: all 0.4s;
+}
+
+.content__search-bar--info {
+  font-size: 0.7rem;
+  color: #ccc;
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+.content__search-bar--input {
+  font-family: inherit;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #333;
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  outline: 0;
+}
+
+.content__search-bar--input:placeholder-shown ~ .content__search-bar--label {
+  font-size: 1.2rem;
+  transform: translateY(25px);
+}
+
+.content__search-bar--input:focus ~ .content__search-bar--label {
+  font-size: 0.75rem;
+  transform: translateY(8px);
+  color: #999;
+}
+
+.content__search-bar--input:focus ~ .content__search-bar--info {
+  opacity: 1;
+}
+
+.content__search-bar--input:focus {
+  border-bottom: 1px solid #333;
+}
+</style>

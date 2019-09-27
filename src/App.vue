@@ -1,27 +1,35 @@
 <template>
   <div id="app">
-    <TheBody msg="Welcome to Your Vue.js App" />
+    <router-view />
   </div>
 </template>
 
 <script>
-import TheBody from './components/TheBody.vue'
-
 export default {
   name: 'app',
-  components: {
-    TheBody,
-  },
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arvo, serif;
+  font-weight: 400;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #777;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 </style>
