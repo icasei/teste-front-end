@@ -7,10 +7,16 @@ import { AppComponent } from './app.component';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HomeComponent, SearchComponent, VideoComponent } from './views';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    SearchComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
