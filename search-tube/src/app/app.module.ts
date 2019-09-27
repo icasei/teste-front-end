@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomeComponent, SearchComponent, VideoComponent } from './views';
@@ -22,6 +24,7 @@ import { HomeComponent, SearchComponent, VideoComponent } from './views';
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
+    MatIconModule,
     BrowserAnimationsModule
   ],
   providers: [],

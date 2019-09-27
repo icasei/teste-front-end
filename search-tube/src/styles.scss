@@ -28,5 +28,14 @@ $search-tube-theme: mat-light-theme($search-tube-primary, $search-tube-accent, $
 
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
