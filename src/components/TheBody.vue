@@ -17,30 +17,40 @@
         Pressione &lt;Enter&gt; para buscar
       </label>
     </div>
-    <result-list :video-list="resultList" />
+    <loading-api v-if="loading" />
+    <result-list
+      v-else
+      :video-list="resultList"
+      :total-results="totalResults"
+    />
   </div>
 </template>
 
 <script>
+import LoadingApi from '@/components/LoadingApi'
 import ResultList from '@/components/ResultList'
 
 export default {
   name: 'TheBody',
-  components: { ResultList },
+  components: { LoadingApi, ResultList },
   data() {
     return {
       searchInput: '',
       resultList: [],
+      totalResults: null,
       nextPageToken: '',
+      loading: false,
     }
   },
   methods: {
     getResults() {
+      this.loading = true
       const API_KEY = 'AIzaSyBFc4O83TP3ofYcNYDVG-3vdf9HGQVkmPQ'
       const maxResults = 10
       const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search'
       const params = {
         part: 'id,snippet',
+        type: 'video',
         q: this.searchInput,
         maxResults,
         key: API_KEY,
@@ -48,18 +58,12 @@ export default {
       this.$http
         .get(YOUTUBE_URL, { params })
         .then(res => {
-          console.log(res.data)
           this.resultList = res.data.items
+          this.totalResults = res.data.pageInfo.totalResults
           this.nextPageToken = res.data.nextPageToken
         })
-        .catch(err => console.log(err))
-    },
-    infiniteScroll() {
-      window.addEventListener('scroll', () => {
-        if (endOfPage) {
-          console.log('fim')
-        }
-      })
+        .catch(err => err)
+        .finally(() => (this.loading = false))
     },
   },
 }
