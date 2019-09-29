@@ -29,6 +29,7 @@
 <script>
 import LoadingApi from '@/components/LoadingApi'
 import ResultList from '@/components/ResultList'
+import { YOUTUBE_LIST_URL, API_KEY } from '@/utils/api'
 
 export default {
   name: 'TheBody',
@@ -40,14 +41,13 @@ export default {
       totalResults: null,
       nextPageToken: '',
       loading: false,
+      bottom: false,
     }
   },
   methods: {
     getResults() {
       this.loading = true
-      const API_KEY = 'AIzaSyBFc4O83TP3ofYcNYDVG-3vdf9HGQVkmPQ'
       const maxResults = 10
-      const YOUTUBE_URL = 'https://www.googleapis.com/youtube/v3/search'
       const params = {
         part: 'id,snippet',
         type: 'video',
@@ -56,13 +56,13 @@ export default {
         key: API_KEY,
       }
       this.$http
-        .get(YOUTUBE_URL, { params })
+        .get(YOUTUBE_LIST_URL, { params })
         .then(res => {
           this.resultList = res.data.items
           this.totalResults = res.data.pageInfo.totalResults
           this.nextPageToken = res.data.nextPageToken
         })
-        .catch(err => err)
+        .catch(() => this.$router.push('error'))
         .finally(() => (this.loading = false))
     },
   },
