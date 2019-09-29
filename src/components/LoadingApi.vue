@@ -18,7 +18,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
 }
 
 .loading-ripple {

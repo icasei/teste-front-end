@@ -1,21 +1,29 @@
 <template>
   <div class="content">
-    <div class="content__search-bar">
-      <input
-        v-model="searchInput"
-        id="search_input"
-        type="text"
-        name="search"
-        class="content__search-bar--input"
-        placeholder=" "
-        @keypress.enter="getResults"
-      />
-      <label for="search_input" class="content__search-bar--label">
-        Pesquisar
-      </label>
-      <label for="search_input" class="content__search-bar--info">
-        Pressione &lt;Enter&gt; para buscar
-      </label>
+    <div
+      :class="{
+        'content__search-bar-wrapper': true,
+        'content__search-bar_small': resultList.length,
+      }"
+    >
+      <div class="content__search-bar">
+        <input
+          v-model="searchInput"
+          id="search_input"
+          type="text"
+          name="search"
+          class="content__search-bar--input"
+          placeholder=" "
+          @keypress.enter="getResults"
+        />
+        <label for="search_input" class="content__search-bar--label">
+          Pesquisar
+        </label>
+        <label for="search_input" class="content__search-bar--info">
+          Pressione &lt;Enter&gt; para buscar
+        </label>
+        <magnify-icon class="content__search-bar--magnify" />
+      </div>
     </div>
     <loading-api v-if="loading" />
     <result-list
@@ -29,11 +37,12 @@
 <script>
 import LoadingApi from '@/components/LoadingApi'
 import ResultList from '@/components/ResultList'
+import MagnifyIcon from 'vue-material-design-icons/Magnify.vue'
 import { YOUTUBE_LIST_URL, API_KEY } from '@/utils/api'
 
 export default {
   name: 'TheBody',
-  components: { LoadingApi, ResultList },
+  components: { LoadingApi, ResultList, MagnifyIcon },
   data() {
     return {
       searchInput: '',
@@ -71,15 +80,23 @@ export default {
 
 <style scoped>
 .content {
+  padding: 1rem;
+}
+
+.content__search-bar-wrapper {
+  overflow: hidden;
+  height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 1rem;
+}
+
+.content__search-bar_small {
+  height: auto;
 }
 
 .content__search-bar {
-  overflow: hidden;
   position: relative;
 }
 
@@ -97,6 +114,13 @@ export default {
   color: #ccc;
   transition: all 0.4s;
   opacity: 0;
+}
+
+.content__search-bar--magnify {
+  position: absolute;
+  right: 0;
+  top: 25px;
+  z-index: -1;
 }
 
 .content__search-bar--input {
