@@ -19,7 +19,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 100vh;
 }
 
 .loading-ripple {
