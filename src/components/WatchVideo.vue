@@ -87,6 +87,9 @@ export default {
   created() {
     this.getVideo()
   },
+  activated() {
+    this.getVideo()
+  },
   methods: {
     getVideo() {
       this.loading = true
