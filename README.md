@@ -1,10 +1,15 @@
-# TesteFrontEnd
+# Teste iCasei: Front-End Pleno by Leonardo Falotico
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
+## Instruções de instalação
+- Necessário ter instalado o [Node.js](https://nodejs.org/en/)
+- Vá até a pasta do projeto (em 'teste-front-end') e instale os módulos do npm com `npm install`
 
-## Development server
+## Rodando a aplicação
+- Dentro da pasta do projeto inicie a aplicação com `ng serve` e navegue até `http://localhost:4200/`
+- Build da aplicação com `npm build --prod`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 ## Code scaffolding
 
