@@ -1,1 +1,59 @@
-<p>details works!</p>
+<div class="video-details-container" *ngIf="videoDetails">
+  <div class="header-row">
+    <div class="arrow-back">
+      <a [routerLink]="['/']">
+        <mat-icon>arrow_back</mat-icon>
+      </a>
+    </div>
+    <h2 class="ellipsis">{{ videoDetails?.snippet?.title }}</h2>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="content col-12">
+        <img [src]="videoDetails?.snippet?.thumbnails?.maxres?.url" alt="video thumbnail" />
+
+        <div class="description-container">
+          <div class="container-header">
+            <h4 class="ellipsis">{{ videoDetails?.snippet?.channelTitle }}</h4>
+
+            <div class="container-header-statistics">
+              <div class="statistic-report">
+                <mat-icon>thumb_up</mat-icon>
+                <p>{{ videoDetails?.statistics?.likeCount }}</p>
+              </div>
+
+              <div class="statistic-report">
+                <mat-icon>thumb_down</mat-icon>
+                <p>{{ videoDetails?.statistics?.dislikeCount }}</p>
+              </div>
+
+              <div class="statistic-report">
+                <mat-icon>remove_red_eye</mat-icon>
+                <p>{{ videoDetails?.statistics?.viewCount }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- <mat-divider></mat-divider> -->
+
+          <div class="container">
+            <p style="overflow: auto">
+              {{ videoDetails?.snippet?.description }}
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="error-or-loading-container" *ngIf="!videoDetails">
+  <app-loading *ngIf="loading"></app-loading>
+
+  <div *ngIf="error">
+    <app-error class="error" mainErrorMessage="Erro ao buscar video" secondaryErrorMessage="Tente novamente mais tarde!"></app-error>
+  </div>
+</div>

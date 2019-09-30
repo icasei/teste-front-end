@@ -2,27 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-
-// Components
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { SearchComponent } from './main/search/search.component';
-import { DetailsComponent } from './main/details/details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    SearchComponent,
-    DetailsComponent
   ],
 
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InfiniteScrollModule,
+    BrowserAnimationsModule
   ],
 
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

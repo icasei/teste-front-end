@@ -1,0 +1,140 @@
+@import '../../../../assets/scss/variables.scss';
+
+.mat-card {
+  max-width: 450px;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+  box-shadow: 0px !important;
+  border: 1px solid #DDD;
+  border-radius: 0px;
+
+  .mat-elevation-z {
+    box-shadow: 0px !important;
+  }
+
+  &:hover {
+    box-shadow: 0px;
+  }
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0px;
+    background-color: $main-color;
+
+    .mat-card-title {
+      color: #FFF !important;
+      width: 100%;
+      padding: 0px 3%;
+      margin: 0px 0px 5px;
+      font-size: 16px;
+      line-height: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+
+      max-width: 47ch;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mat-card-subtitle {
+      font-size: 12px;
+      line-height: 16px;
+      color: #FFF !important;
+      width: 100%;
+      padding: 0px 3%;
+      margin: 0px;
+      font-family: 'Montserrat', sans-serif;
+
+      .badge {
+        padding: .35em .4em .60em;
+        background-color: $secundary-color;
+      }
+    }
+  }
+
+  .mat-card-content {
+    margin: auto;
+    width: 94%;
+    padding: 20px 0%;
+    font-size: 14px;
+    height: 110px;
+
+    p {
+      height: auto;
+      overflow: hidden;
+    }
+  }
+
+  .mat-card-actions {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 0;
+    margin: 10px 0px;
+    border-top: 1px solid #DDD;
+
+    button {
+      color: $main-color;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 14px;
+
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+
+  img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  .mat-card {
+    max-width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .mat-card-header {
+      padding: 15px 0px;
+      background-color: $main-color;
+      
+      .mat-card-title {
+        color: #FFF !important;
+        width: 100%;
+        padding: 0px 3%;
+        margin: 0px 0px 5px;
+        font-size: 16px;
+        line-height: 20px;
+        max-width: 36ch;
+      }
+
+      .mat-card-subtitle {
+        color: #FFF !important;
+        width: 100%;
+        padding: 0px 3%;
+        margin: 0px;
+      }
+    }
+
+    .mat-card-content {
+      margin: auto;
+      width: 94%;
+      min-height: 125px;
+      height: auto;
+    }
+  }
+}

@@ -1,3 +1,11 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <app-search></app-search>
+<div class="container" [style.justify-content]="getJustifyContent()">
+  
+  <app-search (searchValue)="searchVideos($event)" class="slidingIn" [ngClass]="{ onTop: barOnTop, slidingOut: barOnTop }"></app-search>
+  <app-loading *ngIf="loading"></app-loading>
+  <app-list [hidden]="loading" [videoDetailsList]="videoDetailsList" (searchNextPage)="searchVideos(termToSearch)" *ngIf="videoDetailsList?.length; else errorTemplate"></app-list>
+  
+  <ng-template #errorTemplate>
+    <app-error class="error" *ngIf="barOnTop && !loading" mainErrorMessage="Não conseguimos encontrar nenhum vídeo com termo buscado" secondaryErrorMessage="Utilize outras palavras-chave" ></app-error>
+  </ng-template>
+
 </div>

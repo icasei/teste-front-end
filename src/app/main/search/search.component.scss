@@ -1,0 +1,26 @@
+form {
+  display: block;
+  height: 80px;
+  padding: 10px 15px;
+  width: 70%;
+  margin: 0px auto;
+
+  mat-form-field {
+    width: 100%;
+
+    ::ng-deep.mat-form-field-suffix {
+      // display: flex;
+      align-items: center;
+      top: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  form {
+    display: block;
+    height: 80px;
+    padding: 10px 15px;
+    width: 100%;
+  }
+}

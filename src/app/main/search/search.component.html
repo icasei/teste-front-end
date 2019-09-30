@@ -1,1 +1,17 @@
-<p>search works!</p>
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Procurar</mat-label>
+    <input matInput autocomplete="off" formControlName="searchValue" />
+    <mat-error *ngIf="searchForm.invalid">Campo Obrigatório</mat-error>
+    
+    <button mat-button *ngIf="searchForm.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchValue()" type="button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <!-- <div class="submit-container">
+    <button class="submit-button" mat-raised-button color="primary">
+      <mat-icon type="submit">search</mat-icon>
+    </button>
+  </div> -->
+</form>

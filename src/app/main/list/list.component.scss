@@ -1,0 +1,28 @@
+@import '../../../assets/scss/variables.scss';
+
+.list-container {
+  app-card {
+    margin: 1% 0px;
+  }
+
+  app-card:first-child {
+    display: none;
+  }
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  button {
+    color: $main-color;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  app-card {
+    margin: 5% 0px !important;
+    width: 100%;
+  }
+}

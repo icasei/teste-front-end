@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -29,4 +30,15 @@ $teste-front-end-theme: mat-light-theme($teste-front-end-primary, $teste-front-e
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Open Sans', "Helvetica Neue", sans-serif; }
+
+.mat-card-header-text {
+  margin: 0px !important;
+  width: 100%;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px, 
+              0px, 
+              0px !important;
+}
