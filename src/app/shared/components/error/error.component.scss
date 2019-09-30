@@ -1,0 +1,17 @@
+.error-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+  }
+
+  .main-error-message {
+    font-size: 14px;
+  }
+
+  .secondary-error-message {
+    font-size: 12px;
+  }
+}

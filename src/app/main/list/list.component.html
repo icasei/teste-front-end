@@ -1,0 +1,11 @@
+<div class="list-container row">
+  <app-card *ngFor="let videoDetails of videoDetailsList" [videoSummarizedDetails]="videoDetails" class="col-sm-12 col-md-4 col-lg-4 col-xl-4"></app-card>
+</div>
+
+<div class="button-container" *ngIf="videoDetailsList?.length">
+  <button mat-button (click)="seeMore()" *ngIf="videoDetailsList">ver mais <mat-icon>replay</mat-icon></button>
+</div>
+
+<!-- <div class="loader loader-progress" *ngIf="loadingInProgress">
+  <div class="loading"></div>
+</div> -->

@@ -1,0 +1,22 @@
+<mat-card class="mat-elevation-z0">
+  <img mat-card-image [src]="videoSummarizedDetails.snippet.thumbnails.high.url" alt="video thumbnail"/>
+  
+  <mat-card-header>
+    <mat-card-title>{{ videoSummarizedDetails.snippet.title }}</mat-card-title>
+    <mat-card-subtitle><span class="badge badge-primary">{{ videoSummarizedDetails.snippet.channelTitle }}</span></mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      {{
+        videoSummarizedDetails.snippet.description
+          ? videoSummarizedDetails.snippet.description
+          : 'video has no description'
+      }}
+    </p>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button [routerLink]="['/details', videoSummarizedDetails.id.videoId]" class="btn btn-link">Ver Detalhes do Video</button>
+  </mat-card-actions>
+</mat-card>

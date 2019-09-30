@@ -1,47 +1,32 @@
-# Teste iCasei: Front-End
-Desenvolver uma aplicação HTML5
+# Teste iCasei: Front-End Pleno by Leonardo Falotico
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub, ou BitBucket.
-- Siga as especificações abaixo.
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail frontend@icasei.com.br com o título **Teste FrontEnd**
+## Instruções de instalação
+- Necessário ter instalado o [Node.js](https://nodejs.org/en/)
+- Vá até a pasta do projeto (em 'teste-front-end') e instale os módulos do npm com `npm install`
 
-## Especificações tecnicas
-- Utilizar diretrizes do [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
-- Utilizar a [API de busca do YouTube](https://developers.google.com/youtube/v3/docs/search/list)
-- Mobile first e responsivo
-- Usar framework JS (React, Angular ou frameworks relacionados)
-- Cores livres, layout livre, imagens livres
-- Gitflow
+## Rodando a aplicação
+- Dentro da pasta do projeto inicie a aplicação com `ng serve` e navegue até `http://localhost:4200/`
+- Build da aplicação com `npm build --prod`
 
-## Observações
-- Para consumir os dados desta [API](https://developers.google.com/youtube/v3/docs/search/list), você deve gerar sua api_key de aplicação neste [link](https://developers.google.com/youtube/v3/getting-started?hl=pt-br).
 
-## Especificações funcionais
-### Tela Inicial
-Essa tela terá um formulário de busca posicionado no meio da tela com campo de texto com placeholder "Pesquisar" e um botão "Buscar". Esse formulário deverá ter validação.
 
-Essa busca deverá chamar a url https://www.googleapis.com/youtube/v3/search?part=id,snippet&q={termo_de_busca}&key={API_KEY}
+## Code scaffolding
 
-Ao fazer a busca, o formulário deve ser movido para o topo da tela usando css animate e mostrar a lista de resultados com os campos título, descrição, thumbnail e um link para a página de detalhes.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Essa página deverá ter paginação, utilizando os [recursos de paginação da api](https://developers.google.com/youtube/v3/guides/implementation/pagination?hl=pt-br).
+## Build
 
-### Tela de detalhes
-A partir do videoId retornado na outra chamada, deve ser feito uma chamada para https://www.googleapis.com/youtube/v3/videos?id={VIDEO_ID}&part=snippet,statistics&key={API_KEY}
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-A partir desse retorno, deve-se montar uma tela contendo embed do video, título, like, deslike, descrição e visualizações.
+## Running unit tests
 
-Essa tela deve ter um botão para voltar, exibindo os últimos resultados da busca com a pagina em questão ativa.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Wireframe
-[Wireframe Mobile](https://projects.invisionapp.com/share/TKNIYA2FH3M#/screens)
+## Running end-to-end tests
 
-[Wireframe Desktop](https://projects.invisionapp.com/share/TKNIYA2FH3M#/screens/384336638)
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## O que será avaliado?
-- Organização do projeto
-- Lógica do código
-- Uso do Git
-- Uso de componentização
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
