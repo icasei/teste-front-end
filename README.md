@@ -1,4 +1,4 @@
-# Teste iCasei: Front-End Pleno by Leonardo Falotico
+# Teste iCasei: Front-End Pleno por Leonardo Falotico
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
 ## Instruções de instalação
