@@ -1,0 +1,32 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\gabriel.furquim\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init --y
+
+PATH: 
+  C:\Users\gabriel.furquim\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\gabriel.furquim\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\gabriel.furquim\AppData\Local\Microsoft\WindowsApps;C:\Users\gabriel.furquim\AppData\Local\hyper\app-3.0.2\resources\bin;C:\Users\gabriel.furquim\AppData\Roaming\npm;C:\Users\gabriel.furquim\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\gabriel.furquim\.dotnet\tools;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.8.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (C:\Users\gabriel.furquim\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:96528:59)
+      at Object.<anonymous> (C:\Users\gabriel.furquim\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:88889:38)
+      at Generator.next (<anonymous>)
+      at step (C:\Users\gabriel.furquim\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:304:30)
+      at C:\Users\gabriel.furquim\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:315:13
+      at processTicksAndRejections (internal/process/task_queues.js:85:5)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
