@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 import {
-  Home
+  HomePage
 } from '../../Pages'
 
 const Routes = () => {
@@ -11,7 +11,7 @@ const Routes = () => {
     <>
       <Router>
         <Switch>
-          <Route path='/' component={Home} exact />
+          <Route path='/' component={HomePage} exact />
         </Switch>
       </Router>
     </>
