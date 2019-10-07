@@ -21,7 +21,7 @@ const Card = ({
         <S.Description>{description}</S.Description>
         <S.Footer>
           <Link to={link}>
-            <Button variant='contained'> detalhes do vídeo</Button>
+            <Button variant='contained' ><S.Details> detalhes do vídeo</S.Details></Button>
           </Link>
         </S.Footer>
       </S.Body>
