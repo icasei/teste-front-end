@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import HomePage from '../src'
+import { HomePage } from '../src/Pages'
 
 describe('Testing HomePage Component', () => {
   it('should render correctly', () => {
