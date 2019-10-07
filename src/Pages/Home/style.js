@@ -17,14 +17,14 @@ const Search = styled.form`
   }
 `
 const Result = styled.div`
-  max-width: 1200px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-  align-items:center;
-  @media(min-width:600px){
-    align-items:unset;
-    justify-content:unset;
+  max-width: 990px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  @media (min-width: 600px) {
+    align-items: unset;
+    justify-content: unset;
   }
 `
 

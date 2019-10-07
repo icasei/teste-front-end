@@ -10,7 +10,6 @@ import { Card } from '../../Components'
 
 import { getYoutubeVideos } from '../../Services/Api/youtube'
 
-
 const HomePage = () => {
   const [inputValue, setInputValue] = React.useState('')
   const [isFetch, setIsFetch] = React.useState(false)
@@ -38,36 +37,37 @@ const HomePage = () => {
     setInputValue(value)
   }
 
-
   return (
     <>
-      <S.Body id='home'>
+      <S.Body id="home">
         <S.Search ref={refSearch} onSubmit={handleSearch}>
           <OutlinedInput
             fullWidth
             labelWidth={0}
             style={{}}
-            type='search'
-            placeholder='Pesquisar'
+            type="search"
+            placeholder="Pesquisar"
             onChange={handleChange}
             value={inputValue}
             endAdornment={
-              <InputAdornment position='end'>
+              <InputAdornment position="end">
                 <SearchIcon onClick={handleSearch} />
               </InputAdornment>
             }
           />
         </S.Search>
         {isFetch &&
-          (results ? (
+          (results && results.items.length ? (
             <S.Result>
-              {results.items.map(item => {
+              {results.items.map((item) => {
                 console.log(item)
-                const { snippet: { title, thumbnails, channelTitle, description } } = item
+                const {
+                  snippet: { title, thumbnails, channelTitle, description }
+                } = item
                 return (
                   <Card
                     key={item.id.videoId}
-                    picture={thumbnails.high.url}
+                    picture={thumbnails.medium.url}
                     title={title}
                     subtitle={channelTitle}
                     description={description}
@@ -77,14 +77,14 @@ const HomePage = () => {
               })}
             </S.Result>
           ) : (
-              <S.NoResult>
-                <h4>
-                  <MoodBadOutlinedIcon fontSize='large' />
-                </h4>
-                <h4>Não encontramos vídeos com o termo buscado.</h4>
-                <h4>Utilize outras palavras-chave.</h4>
-              </S.NoResult>
-            ))}
+            <S.NoResult>
+              <h4>
+                <MoodBadOutlinedIcon fontSize="large" />
+              </h4>
+              <h4>Não encontramos vídeos com o termo buscado.</h4>
+              <h4>Utilize outras palavras-chave.</h4>
+            </S.NoResult>
+          ))}
       </S.Body>
     </>
   )
