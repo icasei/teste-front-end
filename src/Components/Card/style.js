@@ -1,9 +1,12 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Body = styled.div`
-  background-color: #f0f0f0;
+  overflow: hidden;
+  border: solid 1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
   padding: 7px;
-  flex: 1 1 240px;
+  flex: 1 1 300px;
   max-width: 300px;
   width: 100%;
   height: 500px;
@@ -12,15 +15,16 @@ const Body = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   margin: 14px 0;
-  @media(min-width: 400px) {
-    margin:14px;
+  @media (min-width: 400px) {
+    margin: 7px;
   }
 `
 
 const Picture = styled.img`
+  border-radius: 4px;
   height: 200px;
   width: 100%;
-  object-fit: fill;
+  /* object-fit: fill; */
 `
 
 const Title = styled.div`
@@ -33,7 +37,6 @@ const Subtitle = styled.div`
   margin: 3px 0;
   font-size: 16px;
   font-weight: bold;
-
 `
 
 const Description = styled.div`
@@ -48,8 +51,8 @@ const Footer = styled.div`
   margin: 7px 0;
 `
 
-const Details = styled.span`
-text-decoration:none;
+const Linker = styled(Link)`
+  text-decoration: none;
 `
 
 export default {
@@ -59,5 +62,5 @@ export default {
   Subtitle,
   Description,
   Footer,
-  Details
+  Linker
 }
