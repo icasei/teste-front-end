@@ -6,6 +6,10 @@ import { TweenLite } from 'gsap'
 
 import S from './style'
 
+import { Card } from '../../Components'
+
+import { getYoutubeVideos } from '../../Services/Api/youtube'
+
 
 const HomePage = () => {
   const [inputValue, setInputValue] = React.useState('')
@@ -16,14 +20,15 @@ const HomePage = () => {
 
   React.useEffect(() => {
     if (isFetch) {
-      TweenLite.to(refSearch.current, 0.2, { marginTop: '7px' })
+      TweenLite.to(refSearch.current, 0.5, { marginTop: '7px' })
     }
   }, [isFetch])
 
-  const handleSearch = (event) => {
+  const handleSearch = async (event) => {
     event.preventDefault()
+    const { data } = await getYoutubeVideos(inputValue)
 
-    console.log(inputValue)
+    setResults(data)
     if (!isFetch) {
       setIsFetch(true)
     }
@@ -56,7 +61,20 @@ const HomePage = () => {
         {isFetch &&
           (results ? (
             <S.Result>
-              <div>result</div>
+              {results.items.map(item => {
+                console.log(item)
+                const { snippet: { title, thumbnails, channelTitle, description } } = item
+                return (
+                  <Card
+                    key={item.id.videoId}
+                    picture={thumbnails.high.url}
+                    title={title}
+                    subtitle={channelTitle}
+                    description={description}
+                    link={'/'}
+                  />
+                )
+              })}
             </S.Result>
           ) : (
               <S.NoResult>

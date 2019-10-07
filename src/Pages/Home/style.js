@@ -16,7 +16,17 @@ const Search = styled.form`
     width: 50%;
   }
 `
-const Result = styled.div``
+const Result = styled.div`
+  max-width: 1200px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  align-items:center;
+  @media(min-width:600px){
+    align-items:unset;
+    justify-content:unset;
+  }
+`
 
 const NoResult = styled.div`
   display: flex;
