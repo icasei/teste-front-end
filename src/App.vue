@@ -12,7 +12,7 @@ export default {
 
 <style>
 /* FONT ROBOTO */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap");
 
 /* RESET */
 * {
@@ -37,5 +37,25 @@ ul {
 body {
   font-family: "Roboto", sans-serif;
   background: #121212;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+/* TRANSITION */
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+}
+
+.v-ender-active,
+.v-leave-active {
+  transition: all 0.3s;
 }
 </style>
