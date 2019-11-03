@@ -21,7 +21,10 @@ export default {
   },
   methods: {
     searchVideos() {
-      if (this.$route.query.search_query !== this.search) {
+      if (
+        this.$route.query.search_query !== this.search &&
+        this.search !== ""
+      ) {
         this.$router.push({ query: { search_query: this.search } });
       }
     }
