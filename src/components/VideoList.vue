@@ -4,7 +4,7 @@
       <div v-if="videos && videos.length" class="list">
         <VideoListItem v-for="video in videos" :key="video.id.videoId" :video="video" />
       </div>
-      <p v-else>Não encontramos vídeos com o termo buscado.</p>
+      <VideoListNoResult v-else />
     </transition>
   </section>
 </template>
@@ -12,11 +12,13 @@
 <script>
 import { api } from "@/services.js";
 import VideoListItem from "@/components/VideoListItem.vue";
+import VideoListNoResult from "@/components/VideoListNoResult.vue";
 
 export default {
   name: "VideoList",
   components: {
-    VideoListItem
+    VideoListItem,
+    VideoListNoResult
   },
   data() {
     return {
