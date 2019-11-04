@@ -41,6 +41,11 @@ body {
 
 a {
   text-decoration: none;
+  color: #40c4ff;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 img {

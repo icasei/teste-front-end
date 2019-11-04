@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const key = "AIzaSyBj7U1JKOn6b091d0tJrjgcth1JB7MJcYE";
+const key = "AIzaSyB14ivyTbSkCnFSDEF5ppuXf5TbYZepw-8";
 
 const axiosInstance = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3"

@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/" tag="article" class="video">
+  <router-link :to="{name: 'detail', params: {id: video.id.videoId}}" tag="article" class="video">
     <img :src="video.snippet.thumbnails.medium.url" :alt="video.snippet.title" class="video__image" />
     <div class="video__info">
       <h1 class="video__title">{{video.snippet.title}}</h1>
