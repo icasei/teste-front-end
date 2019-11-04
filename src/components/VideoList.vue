@@ -1,11 +1,12 @@
 <template>
   <section>
-    <transition>
+    <transition mode="out-in">
       <div v-if="videos && videos.length" class="list">
-        <VideoListItem v-for="video in videos" :key="video.id.videoId" :video="video" />
+        <VideoListItem v-for="(video, index) in videos" :key="index" :video="video" />
       </div>
-      <VideoListNoResult v-else />
+      <VideoListNoResult v-else-if="videos" />
     </transition>
+    <BaseLoading v-if="loading" />
   </section>
 </template>
 
@@ -23,7 +24,9 @@ export default {
   data() {
     return {
       videos: null,
-      nextPageToken: ""
+      nextPageToken: "",
+      maxResults: 6,
+      loading: false
     };
   },
   computed: {
@@ -38,18 +41,43 @@ export default {
   },
   created() {
     this.getVideos();
+    this.getNextPageOnScroll();
   },
   methods: {
     getVideos() {
       this.videos = null;
       api
         .get(
-          `/search?part=id,snippet&maxResults=6&type=video&q=${this.searchQuery}`
+          `/search?part=id,snippet&maxResults=${this.maxResults}&type=video&q=${this.searchQuery}`
         )
         .then(response => {
           this.videos = response.data.items;
           this.nextPageToken = response.data.nextPageToken;
         });
+    },
+    isBottomOfWindow() {
+      return (
+        document.documentElement.scrollTop + window.innerHeight ===
+        document.documentElement.offsetHeight
+      );
+    },
+    getNextPageOnScroll() {
+      window.onscroll = () => {
+        const bottomOfWindow = this.isBottomOfWindow();
+
+        if (bottomOfWindow && this.nextPageToken) {
+          this.loading = true;
+          api
+            .get(
+              `/search?part=id,snippet&maxResults=${this.maxResults}&type=video&q=${this.searchQuery}&pageToken=${this.nextPageToken}`
+            )
+            .then(response => {
+              this.loading = false;
+              this.videos = this.videos.concat(response.data.items);
+              this.nextPageToken = response.data.nextPageToken;
+            });
+        }
+      };
     }
   }
 };
