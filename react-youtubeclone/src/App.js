@@ -10,5 +10,5 @@ export default () => {
 
   return(
     <Grid style
-  )
+  );
 }
