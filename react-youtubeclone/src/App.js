@@ -12,13 +12,13 @@ export default () => {
       <Grid item xs={11}>
         <Grid container spacing={10}>
           <Grid item xs={12}>
-            <SearchBar onSubmit={handleSumit} />
+            <SearchBar onSubmit={handleSubmit} />
           </Grid>
           <Grid item xs={8}>
             <VideoDetail video={selectVideo} />
           </Grid>
           <Grid item xs={4}>
-            <VideoList videos={video} onVideoSelect={setSelectedVideo} />
+            <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
           </Grid>
         </Grid>
       </Grid>

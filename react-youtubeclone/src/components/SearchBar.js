@@ -13,7 +13,7 @@ export default({onSubmit}) => {
     }
 
     return(
-        <Pape elevation={6} style={{padding: "25px"}}>
+        <Paper elevation={6} style={{padding: "25px"}}>
             <TextField
                 fullWidth
                 label="Pesquisar..."
@@ -21,6 +21,6 @@ export default({onSubmit}) => {
                 onChange={handleChange}
                 onKeyPress={onKeyPress}
             />
-        </Pape>
+        </Paper>
     );
 }
