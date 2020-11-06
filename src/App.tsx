@@ -10,7 +10,7 @@ function App() {
     <Router>
       <GlobalStyle />
       <Switch>
-        <Route path="/watch/:id">
+        <Route path="/watch/:videoid">
           <Video />
         </Route>
         <Route path="/">
