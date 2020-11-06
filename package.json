@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -11,16 +12,22 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4",
+    "@types/youtube-player": "^5.5.3",
     "axios": "^0.21.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-infinite-scroll-component": "^5.1.0",
+    "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
     "styled-icons": "^10.22.0",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "youtube-player": "^5.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
