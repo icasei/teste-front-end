@@ -21,3 +21,5 @@ const Search = (props: {onClickSearch: () => any; placeholder: string, term: str
     </Styled.Container>
   )
 }
+
+export default Search
