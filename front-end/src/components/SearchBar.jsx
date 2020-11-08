@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { InputBase } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
 
 const SearchBar = (props) =>{
     const [ term, setTerm ] = useState('');
@@ -11,24 +9,11 @@ const SearchBar = (props) =>{
     }
 
     return (
-        <>
-        <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-        </>
-        // <div className="search-bar">
-        //     <input value={term} onChange={onInputChange} />
-        // </div>
+      <>
+        <div className="search-bar">
+          <input value={term} onChange={onInputChange} />
+        </div>
+      </>
     );
 
 }
