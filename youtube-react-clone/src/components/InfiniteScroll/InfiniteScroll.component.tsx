@@ -1,20 +1,19 @@
 import React from 'react';
-import {Waypoint} from 'react-Waypoint';
-import {Loader} from 'semantic-ui-react';
+import { Waypoint } from 'react-waypoint'
+import { Loader } from 'semantic-ui-react';
 
-interface InfiniteScroll{
+interface IInfiniteScroll {
     children: React.ReactElement;
-    callBack(args: Waypoint.CallbackArgs):void
-    isLoading: boolean
+    callBack(args: Waypoint.CallbackArgs): void
+    isLoading : boolean
 }
-
-export const InfiniteScroll = (props: InfiniteScroll) => {
+export const InfiniteScroll = (props: IInfiniteScroll) => {
     return <>
-    {props.children}
-    <Waypoint bottomOffset = "-15px" onEnter={props.callBack}>
-        <div style={{paddingBottom: '15px'}}>
-            <Loader active={props.isLoading} inline="centered" />
-        </div>
-    </Waypoint>
+        {props.children}
+        <Waypoint bottomOffset="-15px" onEnter={props.callBack}>
+            <div style={{paddingBottom : '15px'}}>
+                <Loader active={props.isLoading} inline="centered" />
+            </div>
+        </Waypoint>
     </>
 }

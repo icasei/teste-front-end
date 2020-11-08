@@ -1,0 +1,4 @@
+.video_grid{
+    display: flex;
+    flex-wrap: wrap;
+}

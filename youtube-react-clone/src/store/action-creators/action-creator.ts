@@ -1,6 +1,6 @@
 import { ActionTypes } from "../interfaces/IAction"
 import { getVideos, getVideoCategories, getVideosByCategory, searchVideo, getTrendingVideos, getVideoById } from "../api/api"
-import { VideoResponse, VideoCategoryResponse, VideoCategory, VideoByCategory, SearchResponse } from "../type"
+import { VideoResponse, VideoCategoryResponse, VideoCategory, VideoByCategory, SearchResponse } from "../types"
 
 export const YoutubeClientLoaded = () => {
     return {
@@ -101,3 +101,4 @@ export const GetTrendingVideos = (nextPageToken: string | null) => {
             })
         })
     }
+}

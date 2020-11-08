@@ -1,7 +1,8 @@
-import {Location, LocationState} from 'history';
+import { Location, LocationState } from 'history';
 
-export const getParamVallue = (location: Location<LocationState>, paramname: string) => {
-    if(!location || !location.search){
+
+export const getParamValue = (location: Location<LocationState>, paramname: string) => {
+    if (!location || !location.search) {
         return null;
     }
 

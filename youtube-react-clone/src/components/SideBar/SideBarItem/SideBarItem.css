@@ -1,5 +1,5 @@
 .sidebar_item:hover{
-    background:rgba(230, 230, 230) !important;
+    background:rgb(230, 230, 230) !important; 
     cursor: pointer;
 }
 

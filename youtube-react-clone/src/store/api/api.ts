@@ -1,4 +1,4 @@
-import { VideoResponse, VideoCategoryResponse, SearchResponse } from "../type"
+import { VideoResponse, VideoCategoryResponse, SearchResponse } from "../types"
 
 export const getVideos = (): Promise<VideoResponse> => {
     return getVideoByFilter();

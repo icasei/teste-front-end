@@ -10,7 +10,7 @@
     width: 15rem;
 }
 
-.top_nav_container{
+.top_nav_containter{
     flex-grow: 1;
     justify-content: center;
 }
@@ -19,7 +19,7 @@
     width: 50%;
 }
 
-.search_input form{
+.search_input form {
     width: 100%;
 }
 
