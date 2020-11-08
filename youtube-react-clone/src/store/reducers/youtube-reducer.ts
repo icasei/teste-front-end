@@ -7,7 +7,7 @@ let initalState: IVideoState = {
     videos: [],
     categories: [],
     videosByCategories: {},
-    VideosLoading: false,
+    videosLoading: false,
     searchResults: {},
     trendingVideos: {},
     video: {}
