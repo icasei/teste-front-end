@@ -1,0 +1,6 @@
+Instalação do projeto
+
+
+1- baixar a aplicação.
+2- Baixar as depedências do projeto com npm install
+3- rodar a aplicação com o comando npm start. 
