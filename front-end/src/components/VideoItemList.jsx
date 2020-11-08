@@ -1,3 +1,4 @@
+import { Box, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 
 const VideoItemList = (props) => {
@@ -7,16 +8,16 @@ const VideoItemList = (props) => {
     const imageUrl = video.snippet.thumbnails.default.url;
 
     return (
-    <li onClick={() => onUserSelected(video)} className="list-group-item">
-        <div className="video-list media">
-            <div className="media-left">
-                <img className="media-object" src={imageUrl} />
-            </div>
-            <div className="media-body">
-                <div className="media-heading">{video.snippet.title}</div>
-            </div>
-        </div>
-    </li>
+            <Grid item lg={3} md={4} sm={6} xs={12} onClick={() => onUserSelected(video)}>
+                <Box className="video-list media">
+                    <Box className="media-left">
+                        <img className="media-object" src={imageUrl} />
+                    </Box>
+                    <Typography className="media-body">
+                        <div className="media-heading">{video.snippet.title}</div>
+                    </Typography>
+                </Box>
+            </Grid>
     );
 };
 

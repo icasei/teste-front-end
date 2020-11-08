@@ -4,6 +4,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
+import { Container, Grid } from '@material-ui/core';
 const API_KEY = 'AIzaSyCuAaFQ2Ex2EW1TS_UdzAgxgXQkA0WcSxk';
 
 
@@ -23,11 +24,17 @@ const App = () => {
   }
 
   return (
-    <div>
-      <SearchBar onSearchTermChange={searchTerm => fetchResource(searchTerm)}/>
-      <VideoDetail video={sldVideo}/>
-      <VideoList onVideoSelect={selected => setSldVideo(selected)} videos={videos} />
-    </div>
+    <Container>
+      <Grid item xs={12} >
+        <SearchBar onSearchTermChange={searchTerm => fetchResource(searchTerm)}/>
+      </Grid>
+      <Grid item xs={12} lg={6}>
+        <VideoDetail video={sldVideo}/>
+      </Grid>
+      <Grid item lg={12}>
+        <VideoList onVideoSelect={selected => setSldVideo(selected)} videos={videos} />
+      </Grid>
+    </Container>
   );
 }
 
