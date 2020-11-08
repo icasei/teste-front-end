@@ -4,3 +4,4 @@ Instalação do projeto
 1- baixar a aplicação.
 2- Baixar as depedências do projeto com npm install
 3- rodar a aplicação com o comando npm start. 
+4- Se ainda houver problemas faça o build da aplicação com o comando serve -s build
