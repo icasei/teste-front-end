@@ -17,7 +17,7 @@ interface IApp extends RouteComponentProps<params> {
 function App(props: IApp) {
   useEffect(() => {
     gapi.load('client', () => {
-      gapi.client.setApiKey("AIzaSyBdT9NVewzwHrcGzMTpsPmTWtgUwH_5MyM");
+      gapi.client.setApiKey("AIzaSyDbTpMR-jEEVAsbQTxwGdiFO4K2WtMhxXI");
       return gapi.client.load("youtube", "v3", () => {
         props.setYoutubeCliendLoaded();
       })
