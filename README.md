@@ -1,4 +1,4 @@
-#Instalação
+# Instalação
 - Baixar a aplicação no repositório ou clonar
 - Baixar as depedências do projeto com o prompt digitando o comando <span>npm install</span>
 - Rodar a aplicação criando um servidor local digitando o comando <span>npm start</span>
