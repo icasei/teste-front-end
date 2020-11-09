@@ -1,0 +1,11 @@
+.rating{
+    display: inline-grid;
+    grid: auto auto / max-content max-content;
+    column-gap: 16px;
+    row-gap: 4px;
+    margin-top: 15px;
+    margin-right: 3px;
+}
+.ui.tiny.progress {
+    grid-column: 1/ span 2;
+}

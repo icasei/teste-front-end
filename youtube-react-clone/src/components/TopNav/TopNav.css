@@ -1,0 +1,28 @@
+.top_nav span i.icon{
+    color: red;
+}
+
+.top_nav{
+    height: 50px;
+}
+
+.top_nav_icon{
+    width: 15rem;
+}
+
+.top_nav_containter{
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.search_input{
+    width: 50%;
+}
+
+.search_input form {
+    width: 100%;
+}
+
+.menu_icon{
+    color: rgb(170, 170, 170);
+}

@@ -1,0 +1,9 @@
+.watch_video{
+    display: grid;
+    grid-template: auto auto auto 1fr / minmax(0,1280px) 400px;
+    justify-content: center;
+    padding-top: 55px;
+    padding-left: 30px;
+    column-gap: 24px;
+    row-gap: 6px;
+}
