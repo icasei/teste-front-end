@@ -1,0 +1,43 @@
+.searchBoxCenter{
+   width: 90%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+}
+
+.searchBoxTop{
+   width: 90%;
+   position: absolute;
+   top: 20px;
+   left: 50%;
+   transform: translate(-50%,0%);
+   animation-name: searchBoxAnimation;
+   animation-duration: 1s;
+}
+
+@keyframes searchBoxAnimation {
+   from {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+   }
+   to {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%,0%);
+   }
+ }
+
+
+.videoGrid {
+   background-color: #FCFCFC;
+   padding-top: 10px;
+
+   width: 80%;
+   float:left;
+   margin-left: 10%;
+   margin-top: 90px;
+}
