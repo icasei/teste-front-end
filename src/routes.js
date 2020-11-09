@@ -1,20 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 import Home from './pages/Home'
-import Video from './pages/Video'
+import Videos from './pages/Videos'
 
-export default function Routes() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/watch/:videoid">
-          <Video />
-        </Route>
-        <Route path="/">
-          <Home/>
-        </Route> 
-      </Switch>
-    </Router>
-  )
-}
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+const Routes = () => (
+    <BrowserRouter>
+        <Switch>
+            <Route path="/video" component={Videos} />
+            <Route path="/" component={Home} />
+        </Switch>
+    </BrowserRouter>
+);
+
+export default Routes;

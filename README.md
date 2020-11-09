@@ -1,23 +1,30 @@
-# Teste iCasei: Front-End
-Desenvolver uma aplicação HTML5.
+<h1 align="center">Teste Front-End iCasei</h1>
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub, ou BitBucket.
-- Siga as especificações abaixo.
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail frontend@icasei.com.br com o título **Teste FrontEnd**.
+## Sobre o Projeto
 
-## Especificações tecnicas
-- Utilizar diretrizes do [Google Material Design](https://www.google.com/design/spec/material-design/introduction.html)
-- Utilizar a [API de busca do YouTube](https://developers.google.com/youtube/v3/docs/search/list)
-- Mobile first e responsivo
-- Usar framework JS (React, Vue, Angular ou frameworks relacionados)
-- Cores livres, layout livre, imagens livres
-- Gitflow
+Teste para a vaga de Desenvolvedor Front-End na iCasei. Aplicação desenvolvida em ReactJS, utilizando styled components e hooks .  Para rodar a aplicação localmente basta efetuar o clone ou download. Acessar a pasta raiz do projeto e digitar:
 
-## Observações
-- Para consumir os dados desta [API](https://developers.google.com/youtube/v3/docs/search/list), você deve gerar sua api_key de aplicação neste [link](https://developers.google.com/youtube/v3/getting-started?hl=pt-br).
+```
+npm install
 
+```
+e depois:
+
+```
+npm start
+
+```
+
+Você também pode acessar uma versão funcional hospedada no Firebase, no seguinte link - [iCasei Frontend](https://icasei-frontend-294815.web.app/)
+
+## 🖥 Preview
+
+<p align="center">
+  <img alt="demo" src=".github/demo.gif" width="100%">
+</p>
+
+
+## 💻 Projeto
 ## Especificações funcionais
 ### Tela Inicial
 Essa tela terá um formulário de busca posicionado no meio da tela com campo de texto com placeholder "Pesquisar" e um botão "Buscar". Esse formulário deverá ter validação.
@@ -35,14 +42,8 @@ A partir desse retorno, deve-se montar uma tela contendo embed do video, título
 
 Essa tela deve ter um botão para voltar, exibindo os últimos resultados da busca com a pagina em questão ativa.
 
-### Wireframe
-[Wireframe Mobile](https://projects.invisionapp.com/share/TKNIYA2FH3M#/screens)
+ ---
+<h4 align="center">
+   Code and coffee ☕
+</h4>
 
-[Wireframe Desktop](https://projects.invisionapp.com/share/TKNIYA2FH3M#/screens/384336638)
-
-## O que será avaliado?
-- Organização do projeto
-- Lógica do código
-- Uso do Git
-- Componentização
-- Usabilidade/Acessibilidade
