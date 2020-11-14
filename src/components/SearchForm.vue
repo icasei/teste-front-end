@@ -7,7 +7,7 @@
                     @keydown.13.prevent="parseSearchString"
                     type="text"
                     class="form-control"
-                    placeholder="Search..."
+                    placeholder="Pesquisar..."
                 >
                 <div class="input-group-append">
                     <button @click="parseSearchString" class="btn btn-outline-secondary" type="button">

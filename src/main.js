@@ -8,7 +8,7 @@ Vue.filter('formatDate', (value) => {
   if(!value) {
     return '';
   } else {
-    return moment(value.toString()).format('MM/DD/YYYY hh:mm');
+    return moment(value.toString()).format('DD/MM/YYYY hh:mm');
   }
 })
 
