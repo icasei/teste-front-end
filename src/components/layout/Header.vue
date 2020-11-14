@@ -1,10 +1,10 @@
 <template>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-dar bg-dar mb-5">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-5">
             <div class="container">
                 <a class="navbar-brand" href="#">
                     <i class="fab fa-youtube fa-2x"></i>
-                    <span class="ml-3">YouTube Search</span>
+                    <span class="ml-3">YouBusca</span>
                 </a>
             </div>
         </nav>
@@ -18,6 +18,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+    cursor: default;
+}
+
 i {
     vertical-align: middle;
     color: red;
