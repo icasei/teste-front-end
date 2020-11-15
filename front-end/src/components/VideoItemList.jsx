@@ -12,11 +12,12 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: 340,
       minWidth:300,
       maxHeight:500,
       minHeight:300,
       padding: 5,
+      marginL: 5,
     },
     media: {
       height: 140,
