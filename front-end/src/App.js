@@ -1,9 +1,8 @@
-import React, {  useEffect, useState, useCallback } from 'react';
+import React, {  useState, useCallback } from 'react';
 import './App.css';
 import axios from 'axios';
 import debounce from "lodash/debounce";
 import VideoList from './components/VideoList';
-import VideoDetail from './components/VideoDetail';
 import { Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -17,8 +16,6 @@ const useStyles = makeStyles({
 
 const App = () => {
   const [videos, setVideos] = useState();
-  // const [search, setSearch] = useState('Harry potter');
-  const [sldVideo, setSldVideo] = useState();
   const KEY = 'AIzaSyA4ELBqvbT_O4q5v6kO7dH3VGvNOOF8mKs';
   const classes = useStyles();
   
@@ -64,7 +61,7 @@ const App = () => {
       :
       <>
         <Grid item lg={12}>
-          <VideoList onVideoSelect={selected => setSldVideo(selected)} videos={videos.items} />
+          <VideoList videos={videos.items} />
         </Grid>
       </>
       }

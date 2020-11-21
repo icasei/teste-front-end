@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import VideoItemList from './VideoItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
   
@@ -19,14 +19,14 @@ const VideoList = ({
             {!list ?
             <></> 
             :
-            list.map((video, x) => {
+            list.map((video) => {
+                {console.log(video)}
                 return (
-                <VideoItemList
-                    onUserSelected={video.onVideoSelect} 
-                    id={video.id.videoId}          
-                    key={video.etag} 
-                    video={video} 
-                />
+                    <VideoItemList
+                        video={video}
+                        id={video.id.videoId}          
+                        key={video.etag} 
+                    />
                 )
             })}
         </Grid>
