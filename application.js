@@ -2,7 +2,7 @@ var form = $('#search-film');
 var search_field = $('#search-film-input');
 var results = $('#results');
 
-var KEY = 'AIzaSyBTo8mOJjxoqYSXEkdIZQdz07ldQndgKaA';
+var KEY = 'AIzaSyA4ELBqvbT_O4q5v6kO7dH3VGvNOOF8mKs';
 
 form.on('submit', function(e) {
   e.preventDefault();
