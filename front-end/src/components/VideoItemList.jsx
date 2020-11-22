@@ -2,8 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -12,19 +10,30 @@ import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles({
-    root: {
-      maxWidth: 340,
-      minWidth:300,
-      maxHeight:500,
-      minHeight:300,
+    container: {
       padding: 5,
-      marginL: 5,
+      '& a': {
+        textDecoration: "none",
+      }
+    },
+    root: {
+      width: 320,
+      height: 300,
+      padding: 5,
+      margin: 5,
     },
     media: {
-      height: 140,
+      width: 320,
+      height:180,
     },
-    container: {
-        padding: 5,
+    hiddenText: {
+      whiteSpace: 'nowrap',
+      width: '100%',                   
+      overflow: 'hidden',              /* "overflow" value must be different from "visible" */ 
+      textOverflow: 'ellipsis',
+    },
+    buttonStyle: {
+      marginTop: "5px",
     }
   });
 
@@ -32,34 +41,34 @@ const VideoItemList = (props) => {
     const video = props.video;
     const classes = useStyles();
     // console.log(video);    
-    const imageUrl = video.snippet.thumbnails.default.url;
+    const imageUrl = video.snippet.thumbnails.high.url;
 
     return (
       <Grid 
         container 
         className={classes.container}
-        lg={3} md={4} sm={6} xs={12} >
-          <Link to={`detalhes/${video.id.videoId}`}>
+        lg={4} md={4} sm={6} xs={12} >
+          <Link  to={`detalhes/${video.id.videoId}`}>
             <Card className={classes.root}>
-              <CardActionArea>
+              <CardActionArea  >
               <CardMedia
                   className={classes.media}
                   image={imageUrl}
                   title="Contemplative Reptile"
               />
-              <CardContent>
-                  <Typography gutterBottom variant="h6" component="h5">
-                      {video.snippet.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                  </Typography>
-              </CardContent>
+              <Typography  className={classes.hiddenText} variant="h6" >
+                  {video.snippet.title}
+              </Typography>
+              <Typography  className={classes.hiddenText} variant="subtitle1" >
+                  {video.snippet.channelTitle}
+              </Typography>
+              <Typography  className={classes.hiddenText} variant="subtitle2" >
+                  {video.snippet.description}
+              </Typography>
               </CardActionArea>
-              <CardActions>
-              <Button  size="small" color="primary">
+              <Button className={classes.buttonStyle}  size="small" variant="contained" color="primary">
                   detalhes
               </Button>
-              </CardActions>
             </Card>
           </Link>
       </Grid>
