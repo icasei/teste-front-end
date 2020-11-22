@@ -18,7 +18,11 @@ packages/*/build
 .vscode
 
 npm-debug.log*
+<<<<<<< HEAD:.gitignore
 debug.log
+=======
+debug.log*
+>>>>>>> feature/video-detalhe:front-end/.gitignore
 yarn-debug.log*
 yarn-error.log*
 

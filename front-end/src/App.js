@@ -1,39 +1,70 @@
-import React, { useState, useEffect } from 'react';
+import React, {  useState, useCallback } from 'react';
 import './App.css';
-import YTSearch from 'youtube-api-search';
-import SearchBar from './components/SearchBar';
+import axios from 'axios';
+import debounce from "lodash/debounce";
 import VideoList from './components/VideoList';
-import VideoDetail from './components/VideoDetail';
 import { Container, Grid } from '@material-ui/core';
-const API_KEY = 'AIzaSyCuAaFQ2Ex2EW1TS_UdzAgxgXQkA0WcSxk';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  searchBar: {
+    textAlign: "center",
+    padding: 10,
+  },
+});
 
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
-  const [sldVideo, setSldVideo] = useState(null);
+  const [videos, setVideos] = useState();
+  const KEY = 'AIzaSyA4ELBqvbT_O4q5v6kO7dH3VGvNOOF8mKs';
+  const classes = useStyles();
+  
 
-  useEffect(() => {
-    fetchResource('Naruto');
-  }, [])
+  const fetchApi = useCallback(async (search) => {
+    try {
+      const res = await axios.get('https://www.googleapis.com/youtube/v3/search',
+      {
+        params: {
+          part: 'snippet',
+          maxResults: 10,
+          key: KEY,
+          q: search,
+        },
+      }
+      );
+      console.log("feact api aqui dentro do callback" ,res.data)
+      setVideos(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
-  const fetchResource = async (item) => {
-      await YTSearch({key: API_KEY, term: item}, (data) => {
-          setVideos(data);
-          setSldVideo(data[0])
-      });
-  }
+    const searchHandler = debounce(async (event) => {
+      const { value } = event.target;
+      if (value === "") return setVideos(null);
+      await fetchApi(value);
+    }, 1000);
+
+
 
   return (
     <Container>
-      <Grid item xs={12} >
-        <SearchBar onSearchTermChange={searchTerm => fetchResource(searchTerm)}/>
+      <Grid item className={classes.searchBar} xs={12} >
+        <input
+          type="text"
+          placeholder="Search recommendations"
+          onChange={searchHandler}
+        />
       </Grid>
-      <Grid item xs={12} lg={6}>
-        <VideoDetail video={sldVideo}/>
-      </Grid>
-      <Grid item lg={12}>
-        <VideoList onVideoSelect={selected => setSldVideo(selected)} videos={videos} />
-      </Grid>
+      {!videos ? 
+      <h1>Loading...</h1> 
+      :
+      <>
+        <Grid item lg={12}>
+          <VideoList videos={videos.items} />
+        </Grid>
+      </>
+      }
     </Container>
   );
 }
