@@ -35,7 +35,7 @@ const VideoItemList = (props) => {
     const imageUrl = video.snippet.thumbnails.default.url;
 
     return (
-        <Grid 
+      <Grid 
         container 
         className={classes.container}
         lg={3} md={4} sm={6} xs={12} >

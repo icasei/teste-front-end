@@ -3,10 +3,7 @@ import { Grid } from '@material-ui/core';
 import VideoItemList from './VideoItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
-
-  
 const VideoList = ({
     videos
 }) => {
@@ -29,8 +26,7 @@ const VideoList = ({
                     />
                 )
             })}
-        </Grid>
-        
+        </Grid>  
     );
 };
 
