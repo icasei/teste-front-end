@@ -2,14 +2,15 @@ import React, {  useState, useCallback } from 'react';
 import './App.css';
 import axios from 'axios';
 import debounce from "lodash/debounce";
-import VideoList from './components/VideoList';
-import { Container, Grid } from '@material-ui/core';
+import{ VideoList, VideoList1, VideoList2 } from './components/VideoList';
+import { Box, Button, Container, Grid, Icon, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Videologo from './img/VideoLogo.png'
+import { Footer } from './components/Footer';
 
 const useStyles = makeStyles({
-  searchBar: {
-    
+  boxSpace: {
+    height:'50vh'
   },
   container:{
     textAlign: "center",
@@ -37,7 +38,8 @@ const useStyles = makeStyles({
 
 const App = () => {
   const [videos, setVideos] = useState();
-  const KEY = 'AIzaSyA4ELBqvbT_O4q5v6kO7dH3VGvNOOF8mKs';
+  const [more, setMore] = useState(0);
+  const KEY = 'AIzaSyDyRShtY1aPx8Atejb65Ip_IknBZwv1JEY';
   const classes = useStyles();
   
 
@@ -47,13 +49,14 @@ const App = () => {
       {
         params: {
           part: 'snippet',
-          maxResults: 12,
+          maxResults: 30,
           key: KEY,
           q: search,
         },
       }
       );
       console.log("feact api aqui dentro do callback" ,res.data)
+      setMore(0)
       setVideos(res.data);
     } catch (err) {
       console.log(err);
@@ -65,10 +68,13 @@ const App = () => {
       if (value === "") return setVideos(null);
       await fetchApi(value);
     }, 1000);
-
-
+    
+    function moreVideos() {
+      setMore(more => more + 1)
+    }
 
   return (
+    <>
     <Container 
     className={classes.container}
     justify="center"
@@ -77,8 +83,7 @@ const App = () => {
       <Grid>
         <img src={Videologo} />
       </Grid>
-      <div></div>
-      <Grid item className={classes.searchBar, !videos? classes.hidder : ''} xs={12} >
+      <Grid item className={ !videos? classes.hidder : ''} xs={12} >
         <input
           type="text"
           placeholder="pesquisa..."
@@ -87,15 +92,39 @@ const App = () => {
       </Grid>
 
       {!videos ? 
-      <h1>bem-vindo</h1> 
+      <Box className={classes.boxSpace}>
+        <Typography variant="h1">bem-vindo</Typography>
+      </Box>
       :
       <>
+      <Grid item lg={12}>
+        <Box component="div" display={more >=0? '': 'none'} >
+            <VideoList videos={videos.items} /> 
+        </Box>
+        <Box component="div" display={more >=1? '': 'none'} >
+          <VideoList1  videos={videos.items} /> 
+        </Box>
+        <Box component="div" display={more >=2? '': 'none'} >
+          <VideoList2 videos={videos.items} />
+        </Box>
+        </Grid>
         <Grid item lg={12}>
-          <VideoList videos={videos.items} />
+          <Button 
+          variant="contained" 
+          color="primary" 
+          size="large"  
+          endIcon={<Icon>keyboard_arrow_down</Icon>}
+          disabled={more >= 2 ? true : false}  
+          onClick={moreVideos} 
+          >
+            Mais Videos
+          </Button>
         </Grid>
       </>
-      }
-      </Container>
+    }
+    </Container>
+    <Footer />
+    </>
   );
 }
 

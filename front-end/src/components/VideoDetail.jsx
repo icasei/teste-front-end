@@ -4,6 +4,7 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { Button, Container, Grid, Typography } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
+import { Footer } from './Footer';
 
 const useStyles = makeStyles({
   video: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
 
 const VideoDetail = () => {
     const [video, setVideo] = useState([]);
-    const KEY = 'AIzaSyA4ELBqvbT_O4q5v6kO7dH3VGvNOOF8mKs';
+    const KEY = 'AIzaSyC2uudbtemgCziavUcyARUYPDQdQst_ZjM';
     const { params } = useRouteMatch();
     const url = `https://www.youtube.com/embed/${params.id}`;
     const classes = useStyles();
@@ -65,7 +66,7 @@ const VideoDetail = () => {
           <Grid 
           item
           >
-            <Link to='/home' className={classes.button}>
+            <Link to='/' className={classes.button}>
             <Button
               variant="contained"
               color="primary"
@@ -94,6 +95,7 @@ const VideoDetail = () => {
             </Grid>
         </Container>
         } 
+        <Footer />
         </>
     );
 };

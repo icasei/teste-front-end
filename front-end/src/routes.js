@@ -9,7 +9,7 @@ import {
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path="/home" >
+      <Route exact path="/" >
         <App/> 
       </Route>
       <Route path="/detalhes/:id">
