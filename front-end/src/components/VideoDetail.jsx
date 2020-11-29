@@ -46,14 +46,11 @@ const VideoDetail = () => {
             },
           }
           );
-          console.log("Detalhes" ,res.data.items[0])
           setVideo(res.data.items[0]);
         } catch (err) {
           console.log(err);
         }
       }, [params.id]);
-      console.log('parametros', params.id)
-      console.log("veidiads",video)
 
     return (
         <>

@@ -55,7 +55,6 @@ const App = () => {
         },
       }
       );
-      console.log("feact api aqui dentro do callback" ,res.data)
       setMore(0)
       setVideos(res.data);
     } catch (err) {

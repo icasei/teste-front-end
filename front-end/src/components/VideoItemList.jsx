@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     hiddenText: {
       whiteSpace: 'nowrap',
       width: '100%',                   
-      overflow: 'hidden',              /* "overflow" value must be different from "visible" */ 
+      overflow: 'hidden', 
       textOverflow: 'ellipsis',
     },
     buttonStyle: {
@@ -40,7 +40,6 @@ const useStyles = makeStyles({
 const VideoItemList = (props) => {
     const video = props.video;
     const classes = useStyles();
-    // console.log(video);    
     const imageUrl = video.snippet.thumbnails.high.url;
 
     return (
