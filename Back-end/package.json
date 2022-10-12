@@ -2,8 +2,9 @@
   "name": "front-end",
   "version": "1.0.0",
   "description": "Desenvolver uma aplicação HTML5.",
-  "main": "application.js",
+  "main": "index.js",
   "scripts": {
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,7 +33,9 @@
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "pm2": "3.0.4",
-    "sequelize": "^6.19.0"
+    "sequelize": "^6.19.0",
+    "jsonwebtoken": "^8.5.1",
+    "dotenv": "^16.0.1"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
