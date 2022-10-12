@@ -1,8 +1,6 @@
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
-
 const mongoose = require('mongoose');
-console.log(dbUser, dbPassword);
 
 mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.oddb3.mongodb.net/?retryWrites=true&w=majority`, { useNewUrlParser: true })
     .then(() => {
