@@ -2,9 +2,9 @@
 Desenvolver uma aplicação HTML5.
 
 ## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub, ou BitBucket.
-- Siga as especificações abaixo.
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
+- Faça um fork desse projeto para a sua conta pessoal do GitHub, ou BitBucket. // ok
+- Siga as especificações abaixo. // ok
+- Crie um README com as instruções para compilar, testar e rodar o projeto. 
 - O link do repositório deverá ser enviado para o e-mail frontend@icasei.com.br com o título **Teste FrontEnd**.
 
 ## Especificações tecnicas
@@ -13,7 +13,7 @@ Desenvolver uma aplicação HTML5.
   - [Go](https://go.dev/)
   - [Next.js](https://nextjs.org/)
   - [Ruby](https://www.ruby-lang.org/pt/)
-  - Qualquer outra linguagem back end também será aceita
+  - Qualquer outra linguagem back end também será aceita // node.js
 - Utilizar diretrizes do [Google Material Design](https://material.io/develop/web)
 - Utilizar a [API de busca do YouTube](https://developers.google.com/youtube/v3/docs/search/list)
 - Mobile first e responsivo
