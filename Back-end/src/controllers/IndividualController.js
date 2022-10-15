@@ -10,12 +10,12 @@ function generateToken(params = {}) {
 
 module.exports = async (request, response) => {
     try{
-        const { email } = request.body;
+        const { email, name} = request.body;
         console.log(email, request.body)
         if( await IndividualModel.findOne({ email })) {
-            return res.status(400).send({error: 'User already exists'});
+            return response.status(400).send({error: 'User already exists'});
         }
-
+        if(!name) return response.status(422).send('nome é obrigatório')
         const Individual = await IndividualModel.create(request.body);
 
         return response.send({
